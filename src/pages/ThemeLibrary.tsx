@@ -84,31 +84,22 @@ export const ThemeLibrary = () => {
                 className="group cursor-pointer flex flex-col outline-none focus-visible:ring-2 focus-visible:ring-blood-coral rounded-2xl"
               >
                 {/* Card Image Area */}
-                <div className={`relative w-full aspect-[3/4] ${theme.imgColor} rounded-2xl overflow-hidden mb-4 shadow-sm group-hover:shadow-xl transition-shadow duration-500`}>
-
-                  {/* Desktop Mockup Preview */}
-                  <div className="absolute inset-0 flex mt-10 justify-center transition-transform duration-700 group-hover:-translate-y-4">
-                    <div className="w-[85%] h-[90%] bg-white rounded-t-lg shadow-lg flex flex-col overflow-hidden opacity-90 group-hover:opacity-100 transition-opacity">
-                      <div className="h-4 bg-gray-200 border-b border-gray-300 w-full shrink-0 flex gap-1 items-center px-2">
-                         <div className="w-1.5 h-1.5 rounded-full bg-red-400"></div>
-                         <div className="w-1.5 h-1.5 rounded-full bg-amber-400"></div>
-                         <div className="w-1.5 h-1.5 rounded-full bg-green-400"></div>
-                      </div>
-                      <div className="flex-1 bg-gray-50 flex items-center justify-center text-center overflow-hidden">
-                         {theme.desktopThumbnail ? (
-                           <img src={theme.desktopThumbnail} alt="PC Preview" className="w-full object-cover object-top" />
-                         ) : (
-                           <span className="text-gray-400 text-xs font-bold font-sans">PC PREVIEW</span>
-                         )}
-                      </div>
+                <div className="relative w-full aspect-[3/4] bg-gray-100 border border-gray-100 rounded-2xl overflow-hidden mb-4 shadow-sm group-hover:shadow-xl transition-shadow duration-500">
+                  {/* Template Full Cover */}
+                  {theme.desktopThumbnail ? (
+                    <img src={theme.desktopThumbnail} alt={`${theme.title} Preview`} className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center bg-gray-50 text-gray-400">
+                      <span className="font-bold font-sans text-xs tracking-wider">PREVIEW</span>
+                      <span className="font-sans text-[10px] mt-1 opacity-60">Not Available</span>
                     </div>
-                  </div>
+                  )}
 
                   {/* Mobile Mockup Reveal */}
                   <div className="absolute -bottom-8 -right-8 w-32 h-56 bg-white rounded-[24px] shadow-2xl border-4 border-gray-900 translate-y-12 rotate-12 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:-rotate-3 transition-all duration-500 ease-out z-10 hidden sm:flex flex-col items-center overflow-hidden">
                     <div className="w-12 h-1 bg-gray-300 absolute top-2 rounded-full z-20"></div>
                     {theme.mobileThumbnail ? (
-                       <img src={theme.mobileThumbnail} alt="Mobile" className="w-full h-full object-cover object-top" />
+                       <img src={theme.mobileThumbnail} alt="Mobile Preview" className="w-full h-full object-cover object-top" />
                     ) : (
                        <span className="text-gray-400 text-[10px] font-bold mt-auto mb-auto">MOBILE</span>
                     )}
@@ -116,7 +107,7 @@ export const ThemeLibrary = () => {
 
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                     <span className="px-6 py-3 bg-white/95 text-deep-black text-sm font-semibold rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 backdrop-blur-sm">
+                     <span className="px-6 py-3 bg-white/95 text-deep-black text-sm font-semibold rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 backdrop-blur-sm relative z-20">
                         미리보기
                      </span>
                   </div>

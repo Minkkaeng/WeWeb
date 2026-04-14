@@ -85,22 +85,19 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
 
             {/* CTA */}
             <div className="w-1/3 flex justify-end">
-              <button className="px-5 py-2 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-colors text-sm">
-                웹사이트 개설
-              </button>
             </div>
           </div>
 
           {/* Preview Container */}
-          <div className="flex-1 overflow-hidden flex justify-center pt-8 pb-0 px-4">
+          <div className="flex-1 overflow-hidden flex justify-center py-6 px-6 lg:px-12">
             <motion.div
-              initial={{ width: '100%', maxWidth: '1152px' }}
+              initial={{ width: '100%', maxWidth: '1600px' }}
               animate={{
                 width: '100%',
-                maxWidth: device === 'desktop' ? '1152px' : '375px'
+                maxWidth: device === 'desktop' ? '1600px' : '375px'
               }}
               transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-              className="relative bg-white rounded-t-xl overflow-hidden shadow-2xl flex flex-col"
+              className="relative bg-white rounded-xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] flex flex-col"
               style={{ height: '100%' }}
             >
               {/* Scrollable Content Area */}
