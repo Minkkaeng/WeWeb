@@ -11,11 +11,12 @@ interface ThemePreviewModalProps {
 
 export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }: ThemePreviewModalProps) => {
   const [device, setDevice] = useState<'desktop' | 'mobile'>('desktop');
+  const [iframeLoaded, setIframeLoaded] = useState(false);
 
-  // Prevent background scrolling when modal is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      setIframeLoaded(false); // 리셋
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -23,6 +24,16 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
       document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
+
+  // ESC 키로 닫기
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
 
   return (
     <AnimatePresence>
@@ -32,15 +43,17 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex flex-col"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${themeTitle} 미리보기`}
         >
           {/* Modal Header */}
           <div className="h-16 flex items-center justify-between px-6 bg-black/40 border-b border-white/10 text-white flex-shrink-0">
-            {/* Left: Info */}
             <div className="flex items-center gap-4 w-1/3">
-              <button 
+              <button
                 onClick={onClose}
                 className="p-2 hover:bg-white/10 rounded-full transition-colors"
-                aria-label="Close modal"
+                aria-label="닫기"
               >
                 <X size={24} />
               </button>
@@ -50,17 +63,19 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
               </div>
             </div>
 
-            {/* Middle: Device Toggle */}
+            {/* Device Toggle */}
             <div className="w-1/3 flex justify-center">
               <div className="flex items-center bg-white/5 rounded-lg p-1">
                 <button
                   onClick={() => setDevice('desktop')}
+                  aria-label="데스크톱 보기"
                   className={`p-2 rounded-md transition-all ${device === 'desktop' ? 'bg-white/20 text-white' : 'text-gray-400 hover:text-white'}`}
                 >
                   <Monitor size={20} />
                 </button>
                 <button
                   onClick={() => setDevice('mobile')}
+                  aria-label="모바일 보기"
                   className={`p-2 rounded-md transition-all ${device === 'mobile' ? 'bg-white/20 text-white' : 'text-gray-400 hover:text-white'}`}
                 >
                   <Smartphone size={20} />
@@ -68,7 +83,7 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
               </div>
             </div>
 
-            {/* Right: CTA */}
+            {/* CTA */}
             <div className="w-1/3 flex justify-end">
               <button className="px-5 py-2 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-colors text-sm">
                 웹사이트 개설
@@ -78,33 +93,47 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
 
           {/* Preview Container */}
           <div className="flex-1 overflow-hidden flex justify-center pt-8 pb-0 px-4">
-            <motion.div 
-              animate={{ 
+            <motion.div
+              initial={{ width: '100%', maxWidth: '1152px' }}
+              animate={{
                 width: '100%',
-                maxWidth: device === 'desktop' ? '1152px' : '375px' 
+                maxWidth: device === 'desktop' ? '1152px' : '375px'
               }}
               transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               className="relative bg-white rounded-t-xl overflow-hidden shadow-2xl flex flex-col"
               style={{ height: '100%' }}
             >
-              {/* Browser Mockup Top Bar removed per request */}
-              
               {/* Scrollable Content Area */}
-              <div className="flex-1 overflow-y-auto bg-gray-50 flex items-center justify-center p-8">
-                 {/* Placeholder for iframe / tall actual theme image */}
-                 <div className="text-center text-gray-400 font-light">
-                   <Monitor size={48} className="mx-auto mb-4 opacity-30" />
-                   <p className="text-lg">미리보기 화면입니다.</p>
-                   <p className="text-sm">실제 아임웹에서는 iframe으로 테마 URL을 불러옵니다.</p>
-                   <br/>
-                   <br/>
-                   <br/>
-                   <p className="text-xs">Scroll Test</p>
-                   {/* Create a tall element to enable scrolling test */}
-                   <div className="h-[2000px] w-full mt-4 bg-gradient-to-b from-gray-100 to-gray-200 rounded-lg flex items-end justify-center pb-8">
-                      <span className="text-gray-300">End of Theme Template</span>
+              <div className="flex-1 bg-gray-50 flex flex-col items-center overflow-hidden relative">
+                 {themeTitle === 'MINIMAL' ? (
+                   <>
+                     {!iframeLoaded && (
+                       <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-50 z-10">
+                         <div className="w-8 h-8 border-4 border-gray-200 border-t-black rounded-full animate-spin"></div>
+                         <p className="mt-4 text-sm text-gray-500 font-light">템플릿 렌더링 중...</p>
+                       </div>
+                     )}
+                     <iframe 
+                       src="/template/minimalist-studio" 
+                       className={`w-full h-full border-0 transition-opacity duration-1000 ${iframeLoaded ? 'opacity-100' : 'opacity-0'}`}
+                       onLoad={() => setIframeLoaded(true)}
+                       title="Minimalist Studio Preview"
+                     />
+                   </>
+                 ) : (
+                   <div className="flex-1 flex flex-col items-center justify-center p-8 mt-20 text-center text-gray-400 font-light w-full overflow-y-auto">
+                     <Monitor size={48} className="mx-auto mb-4 opacity-30" />
+                     <p className="text-lg">미리보기 화면입니다.</p>
+                     <p className="text-sm">현재 'MINIMAL' 테마 외에는 템플릿 페이지가 연결되지 않았습니다.</p>
+                     <br/>
+                     <br/>
+                     <br/>
+                     <p className="text-xs">Scroll Test</p>
+                     <div className="h-[2000px] w-full max-w-4xl mt-4 bg-gradient-to-b from-gray-100 to-gray-200 rounded-lg flex items-end justify-center pb-8 mx-auto">
+                        <span className="text-gray-300">End of Theme Template</span>
+                     </div>
                    </div>
-                 </div>
+                 )}
               </div>
             </motion.div>
           </div>

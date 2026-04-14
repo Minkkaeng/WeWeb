@@ -12,7 +12,7 @@ export const About = () => {
   return (
     <section id="about" className="py-32 px-6 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
-        
+
         <div className="md:w-1/2">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -49,10 +49,11 @@ export const About = () => {
         </div>
 
       </div>
-      
-      {/* Decorative element background */}
-      <motion.div 
-        animate={{ rotate: 360 }}
+
+      {/* 뷰포트에 있을 때만 애니메이션 실행 */}
+      <motion.div
+        whileInView={{ rotate: 360 }}
+        viewport={{ once: false }}
         transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
         className="absolute -top-40 -right-40 text-gray-100 opacity-50 z-0 pointer-events-none"
       >
