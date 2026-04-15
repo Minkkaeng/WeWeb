@@ -102,7 +102,7 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
             >
               {/* Scrollable Content Area */}
               <div className="flex-1 bg-gray-50 flex flex-col items-center overflow-hidden relative">
-                 {themeTitle === 'MINIMAL' ? (
+                 {themeTitle === 'MINIMAL' || themeTitle === 'Fresh Grove' ? (
                    <>
                      {!iframeLoaded && (
                        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-50 z-10">
@@ -111,10 +111,10 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
                        </div>
                      )}
                      <iframe 
-                       src="/template/minimalist-studio" 
+                       src={themeTitle === 'MINIMAL' ? "/template/minimalist-studio" : "/template/fresh-grove"} 
                        className={`w-full h-full border-0 transition-opacity duration-1000 ${iframeLoaded ? 'opacity-100' : 'opacity-0'}`}
                        onLoad={() => setIframeLoaded(true)}
-                       title="Minimalist Studio Preview"
+                       title="Template Preview"
                      />
                    </>
                  ) : (

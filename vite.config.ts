@@ -13,5 +13,13 @@ export default defineConfig(({ command }) => ({
       '@framework/utils': path.resolve(__dirname, '../Monorepo/packages/utils/src'),
       '@': path.resolve(__dirname, './src')
     }
+  },
+  optimizeDeps: {
+    exclude: ['@packages/ui', '@packages/utils']
+  },
+  server: {
+    watch: {
+      usePolling: true
+    }
   }
 }))

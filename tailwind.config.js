@@ -3,7 +3,8 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./template/**/*.{js,ts,jsx,tsx}"
+    "./template/**/*.{js,ts,jsx,tsx}",
+    "../Monorepo/packages/ui/src/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {
@@ -12,6 +13,18 @@ export default {
         'deep-black': '#1A1A1A',
         background: '#FFFFFF',
         foreground: '#1A1A1A',
+        indigo: {
+          50: '#f6f7f6',
+          100: '#eaeeea',
+          200: '#d7e2d7',
+          300: '#bccbb8',
+          400: '#a3b49e',
+          500: '#8f9b8a',
+          600: '#758371',
+          700: '#5e6a5b',
+          800: '#485244',
+          900: '#343b31'
+        }
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

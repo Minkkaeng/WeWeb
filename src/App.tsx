@@ -4,6 +4,7 @@ import { Landing } from './pages/Landing'
 import { ThemeLibrary } from './pages/ThemeLibrary'
 import { ErrorBoundary } from './components/ErrorBoundary'
 import MinimalistStudioTemplate from '../template/minimalist-studio/index'
+import FreshGroveTemplate from '../template/fresh-grove/index'
 
 function NotFound() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/theme" element={<ThemeLibrary />} />
           {/* 독립된 템플릿 전용 라우트 */}
           <Route path="/template/minimalist-studio" element={<MinimalistStudioTemplate />} />
+          <Route path="/template/fresh-grove" element={<FreshGroveTemplate />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 

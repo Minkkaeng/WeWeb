@@ -7,7 +7,7 @@ import minimalMobileImg from '../assets/images/minimal_mobile.png';
 const categories = ['ALL', '쇼핑몰', '기업/브랜드', '원페이지', '프리랜서'];
 
 const themeLibraryData = [
-  { id: 1, title: 'Fresh Grove', category: '쇼핑몰', imgColor: 'bg-orange-100' },
+  { id: 1, title: 'Fresh Grove', category: '쇼핑몰', imgColor: 'bg-[#F9F9F8]', desktopThumbnail: 'https://picsum.photos/id/1025/1920/1080', mobileThumbnail: 'https://picsum.photos/id/1025/800/1200' },
   { id: 2, title: 'WISE', category: '쇼핑몰', imgColor: 'bg-blue-50' },
   { id: 3, title: 'NOBASE CLASS', category: '기업/브랜드', imgColor: 'bg-indigo-950' },
   { id: 4, title: 'PICK', category: '쇼핑몰', imgColor: 'bg-stone-100' },
