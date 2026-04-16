@@ -102,7 +102,7 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
             >
               {/* Scrollable Content Area */}
               <div className="flex-1 bg-gray-50 flex flex-col items-center overflow-hidden relative">
-                 {themeTitle === 'MINIMAL' || themeTitle === 'Fresh Grove' ? (
+                 {['MINIMAL', 'Fresh Grove', 'WISE', 'PICK'].includes(themeTitle.toUpperCase()) ? (
                    <>
                      {!iframeLoaded && (
                        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-50 z-10">
@@ -111,7 +111,12 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
                        </div>
                      )}
                      <iframe 
-                       src={themeTitle === 'MINIMAL' ? "/template/minimalist-studio" : "/template/fresh-grove"} 
+                       src={
+                         themeTitle.toUpperCase() === 'MINIMAL' ? "/template/minimalist-studio" : 
+                         themeTitle.toUpperCase() === 'FRESH GROVE' ? "/template/fresh-grove" : 
+                         themeTitle.toUpperCase() === 'WISE' ? "/template/wise" : 
+                         "/template/pick"
+                       } 
                        className={`w-full h-full border-0 transition-opacity duration-1000 ${iframeLoaded ? 'opacity-100' : 'opacity-0'}`}
                        onLoad={() => setIframeLoaded(true)}
                        title="Template Preview"
@@ -121,7 +126,7 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
                    <div className="flex-1 flex flex-col items-center justify-center p-8 mt-20 text-center text-gray-400 font-light w-full overflow-y-auto">
                      <Monitor size={48} className="mx-auto mb-4 opacity-30" />
                      <p className="text-lg">미리보기 화면입니다.</p>
-                     <p className="text-sm">현재 'MINIMAL' 테마 외에는 템플릿 페이지가 연결되지 않았습니다.</p>
+                     <p className="text-sm">선택하신 '{themeTitle}' 테마의 미리보기 페이지를 준비 중입니다.</p>
                      <br/>
                      <br/>
                      <br/>

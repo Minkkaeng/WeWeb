@@ -5,6 +5,11 @@ import { ThemeLibrary } from './pages/ThemeLibrary'
 import { ErrorBoundary } from './components/ErrorBoundary'
 import MinimalistStudioTemplate from '../template/minimalist-studio/index'
 import FreshGroveTemplate from '../template/fresh-grove/index'
+import WiseTemplate from '../template/WISE/index'
+import PickTemplate from '../template/PICK/index'
+import PickGallery from '../template/PICK/Gallery'
+
+
 
 function NotFound() {
   return (
@@ -33,6 +38,11 @@ function App() {
           {/* 독립된 템플릿 전용 라우트 */}
           <Route path="/template/minimalist-studio" element={<MinimalistStudioTemplate />} />
           <Route path="/template/fresh-grove" element={<FreshGroveTemplate />} />
+          <Route path="/template/wise" element={<WiseTemplate />} />
+          <Route path="/template/pick" element={<PickTemplate />} />
+          <Route path="/template/pick/gallery" element={<PickGallery />} />
+
+
           <Route path="*" element={<NotFound />} />
         </Routes>
 
