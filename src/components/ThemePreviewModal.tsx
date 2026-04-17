@@ -101,22 +101,22 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
               style={{ height: '100%' }}
             >
               {/* Scrollable Content Area */}
-              <div className="flex-1 bg-gray-50 flex flex-col items-center overflow-hidden relative">
-                 {['MINIMAL', 'Fresh Grove', 'WISE', 'PICK'].includes(themeTitle.toUpperCase()) ? (
-                   <>
-                     {!iframeLoaded && (
-                       <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-50 z-10">
-                         <div className="w-8 h-8 border-4 border-gray-200 border-t-black rounded-full animate-spin"></div>
-                         <p className="mt-4 text-sm text-gray-500 font-light">템플릿 렌더링 중...</p>
-                       </div>
-                     )}
-                     <iframe 
-                       src={
-                         themeTitle.toUpperCase() === 'MINIMAL' ? "/template/minimalist-studio" : 
-                         themeTitle.toUpperCase() === 'FRESH GROVE' ? "/template/fresh-grove" : 
-                         themeTitle.toUpperCase() === 'WISE' ? "/template/wise" : 
-                         "/template/pick"
-                       } 
+               <div className="flex-1 bg-gray-50 flex flex-col items-center overflow-hidden relative">
+                  {['MINIMAL', 'FRESH GROVE', 'WISE', 'PICK'].includes(themeTitle.toUpperCase()) ? (
+                    <>
+                      {!iframeLoaded && (
+                        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-50 z-10">
+                          <div className="w-8 h-8 border-4 border-gray-200 border-t-black rounded-full animate-spin"></div>
+                          <p className="mt-4 text-sm text-gray-500 font-light">템플릿 렌더링 중...</p>
+                        </div>
+                      )}
+                      <iframe 
+                        src={
+                          themeTitle.toUpperCase() === 'MINIMAL' ? "/template/minimalist-studio" : 
+                          themeTitle.toUpperCase() === 'FRESH GROVE' ? "/template/fresh-grove" : 
+                          themeTitle.toUpperCase() === 'WISE' ? "/template/wise" : 
+                          "/template/pick"
+                        } 
                        className={`w-full h-full border-0 transition-opacity duration-1000 ${iframeLoaded ? 'opacity-100' : 'opacity-0'}`}
                        onLoad={() => setIframeLoaded(true)}
                        title="Template Preview"
