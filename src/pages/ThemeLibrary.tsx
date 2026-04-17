@@ -10,19 +10,24 @@ import pickMobileImg from '../assets/images/pick_mobile.png';
 
 
 
-const categories = ['ALL', '쇼핑몰', '기업/브랜드', '원페이지', '프리랜서'];
+const categories = ['ALL', '쇼핑몰', '기업 브랜드', '관공서', '포털사이트', '기타'];
 
 const themeLibraryData = [
+  // 이미지가 있는 주요 템플릿 4개 (첫 번째 줄)
   { id: 1, title: 'Fresh Grove', category: '쇼핑몰', imgColor: 'bg-[#F9F9F8]', desktopThumbnail: 'https://picsum.photos/id/1025/1920/1080', mobileThumbnail: 'https://picsum.photos/id/1025/800/1200' },
   { id: 2, title: 'WISE', category: '쇼핑몰', imgColor: 'bg-black', desktopThumbnail: wiseDesktopImg, mobileThumbnail: wiseMobileImg },
-
-  { id: 3, title: 'NOBASE CLASS', category: '기업/브랜드', imgColor: 'bg-indigo-950' },
-  { id: 4, title: 'PICK', category: '쇼핑몰', imgColor: 'bg-stone-100', desktopThumbnail: pickDesktopImg, mobileThumbnail: pickMobileImg },
-
-  { id: 5, title: 'CREATIVE', category: '프리랜서', imgColor: 'bg-purple-100' },
-  { id: 6, title: 'ZERO', category: '원페이지', imgColor: 'bg-green-50' },
-  { id: 7, title: 'MINIMAL', category: '기업/브랜드', imgColor: 'bg-[#111111]', desktopThumbnail: minimalDesktopImg, mobileThumbnail: minimalMobileImg },
-  { id: 8, title: 'STUDIO', category: '프리랜서', imgColor: 'bg-rose-50' },
+  { id: 3, title: 'PICK', category: '쇼핑몰', imgColor: 'bg-stone-100', desktopThumbnail: pickDesktopImg, mobileThumbnail: pickMobileImg },
+  { id: 4, title: 'MINIMAL', category: '기업 브랜드', imgColor: 'bg-[#111111]', desktopThumbnail: minimalDesktopImg, mobileThumbnail: minimalMobileImg },
+  
+  // 5번부터 40번까지 모두 빈 템플릿 (Coming Soon)으로 통일
+  ...Array.from({ length: 36 }, (_, i) => ({
+    id: i + 5,
+    title: `Coming Soon ${i + 1}`,
+    category: '기타',
+    imgColor: 'bg-gray-50',
+    desktopThumbnail: '',
+    mobileThumbnail: ''
+  }))
 ];
 
 export const ThemeLibrary = () => {
@@ -44,7 +49,7 @@ export const ThemeLibrary = () => {
         {/* Header */}
         <div className="mb-12 text-center md:text-left">
           <h1 className="text-4xl font-bold text-deep-black mb-4">테마 라이브러리</h1>
-          <p className="text-gray-500 font-light text-lg">디자인 경험이 없어도 빈칸을 채워 완성할 수 있는 다채로운 템플릿</p>
+          <p className="text-gray-500 font-light text-lg">당신의 비즈니스를 가장 돋보이게 할 WEWEB만의 감각적인 레퍼런스</p>
         </div>
 
         {/* Category Filter */}

@@ -42,13 +42,17 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex flex-col"
+          onClick={onClose}
+          className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex flex-col cursor-pointer"
           role="dialog"
           aria-modal="true"
           aria-label={`${themeTitle} 미리보기`}
         >
           {/* Modal Header */}
-          <div className="h-16 flex items-center justify-between px-6 bg-black/40 border-b border-white/10 text-white flex-shrink-0">
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="h-16 flex items-center justify-between px-6 bg-black/40 border-b border-white/10 text-white flex-shrink-0 cursor-default"
+          >
             <div className="flex items-center gap-4 w-1/3">
               <button
                 onClick={onClose}
@@ -97,11 +101,12 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
                 maxWidth: device === 'desktop' ? '1600px' : '375px'
               }}
               transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-              className="relative bg-white rounded-xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+              className="relative bg-white rounded-xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] flex flex-col cursor-default"
               style={{ height: '100%' }}
             >
               {/* Scrollable Content Area */}
-               <div className="flex-1 bg-gray-50 flex flex-col items-center overflow-hidden relative">
+               <div className="flex-1 bg-gray-50 flex flex-col items-center overflow-y-auto no-scrollbar relative">
                   {['MINIMAL', 'FRESH GROVE', 'WISE', 'PICK'].includes(themeTitle.toUpperCase()) ? (
                     <>
                       {!iframeLoaded && (
@@ -123,7 +128,7 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
                      />
                    </>
                  ) : (
-                   <div className="flex-1 flex flex-col items-center justify-center p-8 mt-20 text-center text-gray-400 font-light w-full overflow-y-auto">
+                   <div className="flex-1 flex flex-col items-center justify-center p-8 mt-20 text-center text-gray-400 font-light w-full overflow-y-auto no-scrollbar">
                      <Monitor size={48} className="mx-auto mb-4 opacity-30" />
                      <p className="text-lg">미리보기 화면입니다.</p>
                      <p className="text-sm">선택하신 '{themeTitle}' 테마의 미리보기 페이지를 준비 중입니다.</p>

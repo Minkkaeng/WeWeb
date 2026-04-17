@@ -3,8 +3,17 @@
 @tailwind utilities;
 
 @layer base {
-  body {
+  html, body {
     @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
+    
+    /* 사이트 전체 스크롤바 완벽 숨김 (Chrome, Firefox, IE 등 전체 대응) */
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none !important;
   }
 }
 
@@ -12,5 +21,27 @@
 @layer utilities {
   .glass {
     @apply bg-white/70 backdrop-blur-md border-b border-white/20;
+  }
+
+  /* 스크롤바 숨기기 유틸리티 */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /* 템플릿 모드일 때 전체 스크롤바 숨김 (html, body 포함) */
+  html.is-template,
+  html.is-template body,
+  .is-template * {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+  html.is-template::-webkit-scrollbar,
+  body.is-template::-webkit-scrollbar,
+  .is-template *::-webkit-scrollbar {
+    display: none !important;
   }
 }

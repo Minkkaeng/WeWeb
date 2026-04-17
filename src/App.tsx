@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { Header } from './components/Header'
 import { Landing } from './pages/Landing'
@@ -26,6 +27,20 @@ function NotFound() {
 function App() {
   const location = useLocation();
   const isTemplateRoute = location.pathname.startsWith('/template');
+
+  // URL 경로가 변경될 때마다 화면 최상단으로 스크롤 및 템플릿 모드 클래스 처리
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    
+    // 템플릿 경로일 경우 전역 클래스 추가 (스크롤바 숨김용)
+    if (isTemplateRoute) {
+      document.documentElement.classList.add('is-template');
+      document.body.classList.add('is-template');
+    } else {
+      document.documentElement.classList.remove('is-template');
+      document.body.classList.remove('is-template');
+    }
+  }, [location.pathname, isTemplateRoute]);
 
   return (
     <ErrorBoundary>

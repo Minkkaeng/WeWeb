@@ -2,8 +2,8 @@ import { motion, type Variants } from 'framer-motion';
 
 const projects = [
   { id: 1, title: 'Fresh Grove', category: '쇼핑몰', width: 'col-span-12 md:col-span-4' },
-  { id: 2, title: 'WISE', category: '랜딩페이지', width: 'col-span-12 md:col-span-8' },
-  { id: 3, title: 'NOBASE CLASS', category: '교육/포털', width: 'col-span-12 md:col-span-6' },
+  { id: 2, title: 'WISE', category: '기업 브랜드', width: 'col-span-12 md:col-span-8' },
+  { id: 3, title: 'NOBASE CLASS', category: '포털사이트', width: 'col-span-12 md:col-span-6' },
   { id: 4, title: 'PICK', category: '쇼핑몰', width: 'col-span-12 md:col-span-6' },
 ];
 
