@@ -31,7 +31,7 @@ export const Header = () => {
     >
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link to="/" className="text-xl font-bold tracking-tighter text-deep-black">
-          WeWeb
+          WeWeb<span className="text-blood-coral">.</span>
         </Link>
 
         {/* 데스크톱 네비게이션 */}
