@@ -1,0 +1,14 @@
+{
+  "name": "weall-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Unified Monorepo for WeWeb and Shared Libraries",
+  "workspaces": [
+    "WeWeb",
+    "Monorepo",
+    "BrandStoryWeb"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
