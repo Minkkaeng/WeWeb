@@ -7,6 +7,9 @@ import wiseDesktopImg from '../assets/images/wise_desktop.png';
 import wiseMobileImg from '../assets/images/wise_mobile.png';
 import pickDesktopImg from '../assets/images/pick_desktop.png';
 import pickMobileImg from '../assets/images/pick_mobile.png';
+import naamDesktopImg from '../assets/images/naam_desktop.png';
+import naamMobileImg from '../assets/images/naam_mobile.png';
+import knexusDesktopImg from '../assets/images/knexus_desktop.png';
 
 
 
@@ -18,10 +21,12 @@ const themeLibraryData = [
   { id: 2, title: 'WISE', category: '쇼핑몰', imgColor: 'bg-black', desktopThumbnail: wiseDesktopImg, mobileThumbnail: wiseMobileImg },
   { id: 3, title: 'PICK', category: '쇼핑몰', imgColor: 'bg-stone-100', desktopThumbnail: pickDesktopImg, mobileThumbnail: pickMobileImg },
   { id: 4, title: 'MINIMAL', category: '기업 브랜드', imgColor: 'bg-[#111111]', desktopThumbnail: minimalDesktopImg, mobileThumbnail: minimalMobileImg },
+  { id: 5, title: 'NAAM', category: '쇼핑몰', imgColor: 'bg-[#FDF6E3]', desktopThumbnail: naamDesktopImg, mobileThumbnail: naamMobileImg },
+  { id: 6, title: 'K-Nexus', category: '관공서', imgColor: 'bg-white', desktopThumbnail: knexusDesktopImg, mobileThumbnail: knexusDesktopImg },
   
-  // 5번부터 40번까지 모두 빈 템플릿 (Coming Soon)으로 통일
-  ...Array.from({ length: 36 }, (_, i) => ({
-    id: i + 5,
+  // 7번부터 40번까지 모두 빈 템플릿 (Coming Soon)으로 통일
+  ...Array.from({ length: 34 }, (_, i) => ({
+    id: i + 7,
     title: `Coming Soon ${i + 1}`,
     category: '기타',
     imgColor: 'bg-gray-50',

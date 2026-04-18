@@ -9,10 +9,11 @@ import FreshGroveTemplate from '../template/fresh-grove/index'
 import WiseTemplate from '../template/WISE/index'
 import PickTemplate from '../template/PICK/index'
 import PickGallery from '../template/PICK/Gallery'
-
-
+import NaamTemplate from '../template/NAAM/index'
+import KNexusTemplate from '../template/K-Nexus/index'
 
 function NotFound() {
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center text-center px-6">
       <h1 className="text-6xl font-black text-deep-black mb-4">404</h1>
@@ -56,6 +57,8 @@ function App() {
           <Route path="/template/wise" element={<WiseTemplate />} />
           <Route path="/template/pick" element={<PickTemplate />} />
           <Route path="/template/pick/gallery" element={<PickGallery />} />
+          <Route path="/template/naam" element={<NaamTemplate />} />
+          <Route path="/template/knexus" element={<KNexusTemplate />} />
 
 
           <Route path="*" element={<NotFound />} />
