@@ -20,7 +20,7 @@ export default function Home() {
       <section className="relative min-h-[500px] md:h-[650px] flex items-center overflow-hidden py-24 md:py-0">
         <div className="absolute inset-0 bg-[#002758]">
           <img 
-            src="https://images.unsplash.com/photo-1577017040065-650ee4d43339?q=80&w=2070&auto=format&fit=crop" 
+            src="/assets/images/kookmin25_hero.png" 
             alt="Hero Background" 
             className="w-full h-full object-cover opacity-30 mix-blend-overlay"
           />

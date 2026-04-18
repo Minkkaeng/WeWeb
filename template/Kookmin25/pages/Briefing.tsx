@@ -22,7 +22,7 @@ export default function Briefing() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           <div className="lg:col-span-2 relative h-[500px] rounded-3xl overflow-hidden group cursor-pointer">
             <img 
-              src="https://images.unsplash.com/photo-1541872703-74c5e443d1f9?q=80&w=2070&auto=format&fit=crop" 
+              src="https://images.unsplash.com/photo-1577017040065-650ee4d43339?q=80&w=2070&auto=format&fit=crop" 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
               alt="Main Briefing"
             />
@@ -54,9 +54,9 @@ export default function Briefing() {
         {/* Small Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
            {[
-             { title: "탄소중립 로드맵 2030 수립", dept: "환경부", date: "2026.04.15", img: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=2041&auto=format&fit=crop" },
-             { title: "디지털 교육 혁신 가이드라인", dept: "교육부", date: "2026.04.12", img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1932&auto=format&fit=crop" },
-             { title: "전통시장 디지털 전환 지원사업", dept: "중소벤처기업부", date: "2026.04.10", img: "https://images.unsplash.com/photo-1541872703-74c5e443d1f9?q=80&w=2070&auto=format&fit=crop" }
+             { title: "탄소중립 로드맵 2030 수립", dept: "환경부", date: "2026.04.15", img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2041&auto=format&fit=crop" },
+             { title: "디지털 교육 혁신 가이드라인", dept: "교육부", date: "2026.04.12", img: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=1932&auto=format&fit=crop" },
+             { title: "전통시장 디지털 전환 지원사업", dept: "중소벤처기업부", date: "2026.04.10", img: "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2070&auto=format&fit=crop" }
            ].map(item => (
              <div key={item.title} className="group cursor-pointer">
                 <div className="aspect-video rounded-2xl overflow-hidden mb-6 relative">
