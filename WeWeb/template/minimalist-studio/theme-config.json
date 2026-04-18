@@ -1,0 +1,66 @@
+{
+  "themeName": "Minimalist Studio",
+  "category": "포트폴리오 및 에이전시",
+  "colors": {
+    "primary": "#d4af37",
+    "background": "#0a0a0a",
+    "text": "#ffffff",
+    "accent": "#f3f4f6"
+  },
+  "fonts": {
+    "heading": "'Playfair Display', 'Times New Roman', serif",
+    "body": "'Inter', 'Helvetica Neue', sans-serif"
+  },
+  "navLinks": [
+    { "label": "Projects", "href": "#works" },
+    { "label": "Studio", "href": "#about" },
+    { "label": "Journal", "href": "#journal" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "hero": {
+    "title": "Kinn Collective",
+    "subtitle": "",
+    "description": "",
+    "backgroundImage": "/src/assets/images/minimalist_hero_bg.png",
+    "primaryButtonText": "",
+    "secondaryButtonText": ""
+  },
+  "portfolio": {
+    "items": [
+      {
+        "title": "The Glass Pavilion",
+        "category": "Architecture",
+        "image": "/src/assets/images/minimalist_portfolio_1.png",
+        "location": "Swiss Alps"
+      },
+      {
+        "title": "Concrete & Light",
+        "category": "Interior",
+        "image": "/src/assets/images/minimalist_portfolio_2.png",
+        "location": "Seoul"
+      }
+    ]
+  },
+  "aboutPage": {
+    "title": "Clarity. \nPrecision. \nElegance.",
+    "description": "다양한 매체와 브랜드를 아우르며, 가장 직관적이면서도 강력한 시각적 언어를 통해 브랜드의 가치를 높입니다. 우리는 모든 건축과 디자인 프로젝트에서 여백의 미와 소재의 진정성을 믿습니다.",
+    "contacts": [
+      { "type": "Email", "value": "hello@kinn-collective.demo" },
+      { "type": "Location", "value": "Seoul, South Korea" }
+    ]
+  },
+  "journalPage": {
+    "title": "Journal.",
+    "articles": [
+      { "title": "The Importance of Negative Space", "date": "2026. 04. 14", "category": "Design" },
+      { "title": "Raw Materials in Modern Architecture", "date": "2026. 03. 22", "category": "Architecture" },
+      { "title": "Light as a Medium", "date": "2026. 02. 10", "category": "Interior" }
+    ]
+  },
+  "contactPage": {
+    "title": "Let's Talk.",
+    "email": "hello@kinn-collective.demo",
+    "phone": "+82 (0)10 1234 5678",
+    "address": "123 Design District, Seoul"
+  }
+}
