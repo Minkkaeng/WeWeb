@@ -11,6 +11,7 @@ import PickTemplate from '../template/PICK/index'
 import PickGallery from '../template/PICK/Gallery'
 import NaamTemplate from '../template/NAAM/index'
 import KNexusTemplate from '../template/K-Nexus/index'
+import Kookmin25Template from '../template/Kookmin25/index'
 
 function NotFound() {
 
@@ -59,6 +60,7 @@ function App() {
           <Route path="/template/pick/gallery" element={<PickGallery />} />
           <Route path="/template/naam" element={<NaamTemplate />} />
           <Route path="/template/knexus" element={<KNexusTemplate />} />
+          <Route path="/template/kookmin25" element={<Kookmin25Template />} />
 
 
           <Route path="*" element={<NotFound />} />
