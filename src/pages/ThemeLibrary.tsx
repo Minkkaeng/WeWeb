@@ -10,6 +10,8 @@ import pickMobileImg from '../assets/images/pick_mobile.png';
 import naamDesktopImg from '../assets/images/naam_desktop.png';
 import naamMobileImg from '../assets/images/naam_mobile.png';
 import knexusDesktopImg from '../assets/images/knexus_desktop.png';
+import evergovDesktopImg from '../assets/images/evergov_desktop.png';
+
 
 
 
@@ -23,10 +25,14 @@ const themeLibraryData = [
   { id: 4, title: 'MINIMAL', category: '기업 브랜드', imgColor: 'bg-[#111111]', desktopThumbnail: minimalDesktopImg, mobileThumbnail: minimalMobileImg },
   { id: 5, title: 'NAAM', category: '쇼핑몰', imgColor: 'bg-[#FDF6E3]', desktopThumbnail: naamDesktopImg, mobileThumbnail: naamMobileImg },
   { id: 6, title: 'K-Nexus', category: '관공서', imgColor: 'bg-white', desktopThumbnail: knexusDesktopImg, mobileThumbnail: knexusDesktopImg },
+  { id: 7, title: 'Bokji', category: '관공서', imgColor: 'bg-white', desktopThumbnail: evergovDesktopImg, mobileThumbnail: evergovDesktopImg },
+
+
   
   // 7번부터 40번까지 모두 빈 템플릿 (Coming Soon)으로 통일
-  ...Array.from({ length: 34 }, (_, i) => ({
-    id: i + 7,
+  ...Array.from({ length: 33 }, (_, i) => ({
+    id: i + 8,
+
     title: `Coming Soon ${i + 1}`,
     category: '기타',
     imgColor: 'bg-gray-50',
