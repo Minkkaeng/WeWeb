@@ -1,16 +1,21 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ThemePreviewModal } from '../components/ThemePreviewModal';
-import minimalDesktopImg from '../assets/images/minimal_desktop.png';
-import minimalMobileImg from '../assets/images/minimal_mobile.png';
-import wiseDesktopImg from '../assets/images/wise_desktop.png';
-import wiseMobileImg from '../assets/images/wise_mobile.png';
-import pickDesktopImg from '../assets/images/pick_desktop.png';
-import pickMobileImg from '../assets/images/pick_mobile.png';
-import naamDesktopImg from '../assets/images/naam_desktop.png';
-import naamMobileImg from '../assets/images/naam_mobile.png';
-import knexusDesktopImg from '../assets/images/knexus_desktop.png';
-import evergovDesktopImg from '../assets/images/evergov_desktop.png';
+import freshActualImg from '../assets/images/fresh_grove_actual.png';
+import freshMobileActualImg from '../assets/images/fresh_grove_mobile_actual.png';
+import wiseActualImg from '../assets/images/wise_actual.png';
+import wiseMobileActualImg from '../assets/images/wise_mobile_actual.png';
+import pickActualImg from '../assets/images/pick_actual.png';
+import pickMobileActualImg from '../assets/images/pick_mobile_actual.png';
+import minimalActualImg from '../assets/images/minimalist_studio_actual.png';
+import minimalMobileActualImg from '../assets/images/minimalist_studio_mobile_actual.png';
+import naamActualImg from '../assets/images/naam_actual.png';
+import naamMobileActualImg from '../assets/images/naam_mobile_actual.png';
+import knexusActualImg from '../assets/images/knexus_actual.png';
+import knexusMobileActualImg from '../assets/images/knexus_mobile_actual.png';
+import kookmin25ActualImg from '../assets/images/kookmin25_actual.png';
+import kookmin25MobileActualImg from '../assets/images/kookmin25_mobile_actual.png';
+import bokjiActualImg from '../assets/images/evergov_desktop.png'; // Using the one I generated
 
 
 
@@ -19,19 +24,18 @@ const categories = ['ALL', '쇼핑몰', '기업 브랜드', '관공서', '포털
 
 const themeLibraryData = [
   // 이미지가 있는 주요 템플릿 4개 (첫 번째 줄)
-  { id: 1, title: 'Fresh Grove', category: '쇼핑몰', imgColor: 'bg-[#F9F9F8]', desktopThumbnail: 'https://picsum.photos/id/1025/1920/1080', mobileThumbnail: 'https://picsum.photos/id/1025/800/1200' },
-  { id: 2, title: 'WISE', category: '쇼핑몰', imgColor: 'bg-black', desktopThumbnail: wiseDesktopImg, mobileThumbnail: wiseMobileImg },
-  { id: 3, title: 'PICK', category: '쇼핑몰', imgColor: 'bg-stone-100', desktopThumbnail: pickDesktopImg, mobileThumbnail: pickMobileImg },
-  { id: 4, title: 'MINIMAL', category: '기업 브랜드', imgColor: 'bg-[#111111]', desktopThumbnail: minimalDesktopImg, mobileThumbnail: minimalMobileImg },
-  { id: 5, title: 'NAAM', category: '쇼핑몰', imgColor: 'bg-[#FDF6E3]', desktopThumbnail: naamDesktopImg, mobileThumbnail: naamMobileImg },
-  { id: 6, title: 'K-Nexus', category: '관공서', imgColor: 'bg-white', desktopThumbnail: knexusDesktopImg, mobileThumbnail: knexusDesktopImg },
-  { id: 7, title: 'Bokji', category: '관공서', imgColor: 'bg-white', desktopThumbnail: evergovDesktopImg, mobileThumbnail: evergovDesktopImg },
-
-
+  { id: 1, title: 'FRESH GROVE', category: '쇼핑몰', imgColor: 'bg-emerald-50', desktopThumbnail: freshActualImg, mobileThumbnail: freshMobileActualImg },
+  { id: 2, title: 'WISE', category: '쇼핑몰', imgColor: 'bg-black', desktopThumbnail: wiseActualImg, mobileThumbnail: wiseMobileActualImg },
+  { id: 3, title: 'PICK', category: '쇼핑몰', imgColor: 'bg-stone-100', desktopThumbnail: pickActualImg, mobileThumbnail: pickMobileActualImg },
+  { id: 4, title: 'MINIMAL', category: '기업 브랜드', imgColor: 'bg-[#111111]', desktopThumbnail: minimalActualImg, mobileThumbnail: minimalMobileActualImg },
+  { id: 5, title: 'NAAM', category: '쇼핑몰', imgColor: 'bg-[#FDF6E3]', desktopThumbnail: naamActualImg, mobileThumbnail: naamMobileActualImg },
+  { id: 6, title: 'K-Nexus', category: '포털사이트', imgColor: 'bg-white', desktopThumbnail: knexusActualImg, mobileThumbnail: knexusMobileActualImg },
+  { id: 7, title: '국민25시', category: '관공서', imgColor: 'bg-[#002758]', desktopThumbnail: kookmin25ActualImg, mobileThumbnail: kookmin25MobileActualImg },
+  { id: 8, title: 'Bokji', category: '관공서', imgColor: 'bg-white', desktopThumbnail: bokjiActualImg, mobileThumbnail: bokjiActualImg },
   
-  // 7번부터 40번까지 모두 빈 템플릿 (Coming Soon)으로 통일
-  ...Array.from({ length: 33 }, (_, i) => ({
-    id: i + 8,
+  // 9번부터 40번까지 모두 빈 템플릿 (Coming Soon)으로 통일
+  ...Array.from({ length: 32 }, (_, i) => ({
+    id: i + 9,
 
     title: `Coming Soon ${i + 1}`,
     category: '기타',

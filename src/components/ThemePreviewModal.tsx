@@ -107,7 +107,8 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
             >
               {/* Scrollable Content Area */}
                <div className="flex-1 bg-gray-50 flex flex-col items-center overflow-y-auto no-scrollbar relative">
-                  {['MINIMAL', 'FRESH GROVE', 'WISE', 'PICK', 'NAAM', 'K-NEXUS', 'BOKJI'].includes(themeTitle.toUpperCase()) ? (
+                  {['MINIMAL', 'FRESH GROVE', 'WISE', 'PICK', 'NAAM', 'K-NEXUS', 'BOKJI', '국민25시'].includes(themeTitle.toUpperCase()) ? (
+
                     <>
                       {!iframeLoaded && (
                         <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-50 z-10">
@@ -122,8 +123,10 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
                           themeTitle.toUpperCase() === 'WISE' ? "/template/wise" : 
                           themeTitle.toUpperCase() === 'PICK' ? "/template/pick" :
                           themeTitle.toUpperCase() === 'NAAM' ? "/template/naam" :
-                          themeTitle.toUpperCase() === 'K-NEXUS' ? "/template/knexus" : 
-                          "/template/bokji"
+                          themeTitle.toUpperCase() === 'BOKJI' ? "/template/bokji" :
+                          themeTitle.toUpperCase() === '국민25시' ? "/template/kookmin25" :
+                          "/template/knexus"
+
                         } 
                        className={`w-full h-full border-0 transition-opacity duration-1000 ${iframeLoaded ? 'opacity-100' : 'opacity-0'}`}
                        onLoad={() => setIframeLoaded(true)}

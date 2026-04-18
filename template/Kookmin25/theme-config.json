@@ -1,0 +1,23 @@
+{
+  "name": "Kookmin25",
+  "displayName": "국민25시",
+  "description": "공공 정책 통합 플랫폼 - 국민의 24시간 그 너머",
+  "version": "1.0.0",
+  "colors": {
+    "primary": "#002758",
+    "secondary": "#0055A4",
+    "accent": "#E63946",
+    "background": "#FFFFFF",
+    "surface": "#F4F7F9",
+    "text": {
+      "primary": "#111111",
+      "secondary": "#4B5563",
+      "muted": "#9CA3AF"
+    },
+    "border": "#E5E7EB"
+  },
+  "fonts": {
+    "heading": "'Pretendard', 'Noto Sans KR', sans-serif",
+    "body": "'Pretendard', 'Noto Sans KR', sans-serif"
+  }
+}

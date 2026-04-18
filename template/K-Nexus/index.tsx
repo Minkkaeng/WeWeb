@@ -16,66 +16,140 @@ export default function KNexusTemplate() {
   const [view, setView] = React.useState<{ type: 'home' | 'notice' | 'detail', id?: number }>({ type: 'home' });
 
   useEffect(() => {
-    document.title = "K-Nexus | Global Career Networking Hub";
+    document.title = "K-Nexus | Global Research & Policy Hub";
   }, []);
 
   return (
-    <div className="kn-root relative w-full min-h-screen selection:bg-blue-600 selection:text-white">
+    <div className="kn-root relative w-full min-h-screen bg-white">
       <Header onNavigate={(v) => setView({ type: v })} />
       
-      <main className="pt-24">
+      <main className="pt-[116px]">
         {view.type === 'home' && (
           <>
             <HeroBanner />
             
-            <section id="about" className="kn-section-padding bg-white">
-              <ContentSection 
-                title="CAREER DNA" 
-                subtitle="전문성기반 경력 경로 최적화" 
-                description="K-Nexus는 연구자와 전문가들의 축적된 데이터를 분석하여 최적의 커리어 패스를 제안합니다. 단순한 연결을 넘어 가치를 창출하는 네트워크의 시작입니다."
-                image="/assets/images/knexus_hero.png" 
-              />
+            {/* 🏫 Policy & Research Sections */}
+            <section className="py-24 bg-white overflow-hidden">
+               <div className="kn-container">
+                  <div className="flex flex-col lg:flex-row items-center gap-16 md:gap-24">
+                     <motion.div 
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        className="flex-1"
+                     >
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-50 text-[11px] font-black text-blue-600 mb-6 uppercase tracking-wider">
+                           Research Collaboration
+                        </div>
+                        <h2 className="text-3xl md:text-5xl font-black text-[#002758] leading-tight mb-8">
+                           전 세계 연구진과 함께하는<br/>
+                           <span className="text-blue-500">글로벌 지식 네트워크</span>
+                        </h2>
+                        <p className="text-lg text-gray-500 leading-relaxed mb-10 font-medium whitespace-pre-wrap">
+                           K-Nexus는 185개국 이상의 글로벌 파트너와 협력하여 혁신적인 공공 연구 프로젝트를 수행합니다. 데이터 기반의 분석 시스템을 통해 국내외 최고의 전문가들이 지식을 교류하고 시너지를 창출합니다.
+                        </p>
+                        <ul className="space-y-4 mb-10">
+                           {['국제 공동 연구 프로젝트 관리 시스템', '전문가 매칭 및 인적 자원 플랫폼', '실시간 글로벌 연구 트렌드 분석'].map(item => (
+                             <li key={item} className="flex items-center gap-3 font-bold text-gray-700">
+                                <span className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">✓</span>
+                                {item}
+                             </li>
+                           ))}
+                        </ul>
+                        <button className="flex items-center gap-2 font-black text-[#002758] group">
+                           연구사업 자세히 보기 <span className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-[#002758] group-hover:text-white transition-all">→</span>
+                        </button>
+                     </motion.div>
+                     <motion.div 
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        className="flex-1 relative"
+                     >
+                        <div className="relative aspect-square rounded-[3rem] overflow-hidden shadow-2xl">
+                           <img src="/assets/images/knexus_research.png" alt="Research Work" className="w-full h-full object-cover" />
+                        </div>
+                        <div className="absolute -bottom-10 -left-10 p-8 bg-white rounded-3xl shadow-xl border border-gray-100 hidden md:block">
+                           <p className="text-xs font-black text-gray-400 mb-2 uppercase tracking-widest">Active Partner</p>
+                           <h4 className="text-2xl font-black text-[#002758]">1,200+ Institutions</h4>
+                        </div>
+                     </motion.div>
+                  </div>
+               </div>
             </section>
 
-            <section id="services" className="kn-section-padding bg-[#F8FAFC]">
-              <div className="kn-container text-center mb-16">
-                <h2 className="text-4xl font-bold mb-4">NETWORKING SERVICES</h2>
-                <div className="w-20 h-1 bg-[#00508C] mx-auto"></div>
-              </div>
-              <div className="kn-container grid grid-cols-1 md:grid-cols-3 gap-8">
-                <ServiceCard 
-                  title="Career Matching" 
-                  desc="인적 자원 네트워크를 통한 최적의 연구 프로젝트 매칭 시스템" 
-                  icon="research"
-                />
-                <ServiceCard 
-                  title="Global Insight" 
-                  desc="전 세계 전문가들과 공유하는 실시간 연구 트렌드 및 데이터" 
-                  icon="insight"
-                />
-                <ServiceCard 
-                  title="Gov-Support" 
-                  desc="정부 지원 과제 및 공공 연구 사업 연계 전문 컨설팅" 
-                  icon="gov"
-                />
-              </div>
+            <section className="py-24 bg-[#F8FAFC]">
+               <div className="kn-container">
+                  <div className="flex flex-col lg:flex-row-reverse items-center gap-16 md:gap-24">
+                     <motion.div 
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        className="flex-1"
+                     >
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-orange-50 text-[11px] font-black text-orange-600 mb-6 uppercase tracking-wider">
+                           Government support
+                        </div>
+                        <h2 className="text-3xl md:text-5xl font-black text-[#002758] leading-tight mb-8">
+                           정부 출연 사업의<br/>
+                           <span className="text-orange-500">투명한 정책 지원</span>
+                        </h2>
+                        <p className="text-lg text-gray-500 leading-relaxed mb-10 font-medium">
+                           국내 주요 부처 및 지자체와 연계하여 추진되는 대규모 정책 지원 사업을 한눈에 관리하세요. 복합적인 지원 절차를 간소화하고 전 과정을 디지털화하여 서비스 효율성을 높였습니다.
+                        </p>
+                        <div className="grid grid-cols-2 gap-6 mb-10">
+                           <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
+                              <h4 className="text-2xl font-black text-[#002758] mb-1">98.5%</h4>
+                              <p className="text-[11px] font-bold text-gray-400">민원 처리 만족도</p>
+                           </div>
+                           <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
+                              <h4 className="text-2xl font-black text-[#002758] mb-1">2,500+</h4>
+                              <p className="text-[11px] font-bold text-gray-400">연간 정책 보고서</p>
+                           </div>
+                        </div>
+                     </motion.div>
+                     <motion.div 
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        className="flex-1 relative"
+                     >
+                        <div className="relative aspect-square rounded-[3rem] overflow-hidden shadow-2xl">
+                           <img src="/assets/images/knexus_policy.png" alt="Policy Development" className="w-full h-full object-cover" />
+                        </div>
+                     </motion.div>
+                  </div>
+               </div>
             </section>
 
-            <section id="insights" className="kn-section-padding bg-white">
-              <div className="kn-container flex flex-col items-center">
-                 <h2 className="text-3xl font-bold mb-12">FEATURED INSIGHTS</h2>
-                 <div className="w-full h-[400px] rounded-2xl overflow-hidden shadow-2xl relative">
-                    <img 
-                      src="/assets/images/knexus_hero.png" 
-                      alt="Insight" 
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-12">
-                       <span className="text-blue-400 font-bold mb-4 tracking-widest">WEEKLY REPORT</span>
-                       <h3 className="text-white text-4xl font-bold leading-tight">2026년 공공 연구 생태계의<br/>디지털 전환과 커리어 변화</h3>
-                    </div>
-                 </div>
-              </div>
+            {/* 📊 Digital Innovation Stats Section */}
+            <section className="py-24 bg-[#001D3D] text-white">
+               <div className="kn-container text-center mb-16">
+                  <span className="text-blue-400 font-black tracking-widest uppercase text-xs">Digital Transformation</span>
+                  <h2 className="text-4xl md:text-5xl font-black mt-4 mb-8">국가 연구 혁신의 디지털 파트너</h2>
+               </div>
+               <div className="kn-container">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                     {[
+                       { title: 'Project Management', desc: '전 공정 실시간 모니터링 및 클라우드 기반 협업 환경 제공' },
+                       { title: 'Data Insight', desc: '인공지능 기반의 연구 데이터 분석 및 정책 예측 모델링' },
+                       { title: 'Information Security', desc: '국가 보안 표준 규격 준수 및 철저한 데이터 무결성 보호' }
+                     ].map((item, idx) => (
+                       <div key={idx} className="p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
+                          <h4 className="text-2xl font-black mb-4 group-hover:text-blue-400">{item.title}</h4>
+                          <p className="text-white/50 leading-relaxed font-medium">{item.desc}</p>
+                       </div>
+                     ))}
+                  </div>
+               </div>
+            </section>
+
+            {/* 🤝 Partner Logo Slider Placeholder */}
+            <section className="py-20 bg-gray-50 overflow-hidden">
+               <div className="kn-container text-center mb-10">
+                  <p className="text-[11px] font-black text-gray-300 uppercase tracking-[0.4em]">Official Partners & Institutions</p>
+               </div>
+               <div className="flex gap-12 justify-center opacity-30 grayscale hover:grayscale-0 transition-all cursor-pointer">
+                  {['Ministry of ICT', 'K-Research Inst.', 'Global Policy HUB', 'Nexus Partners', 'Public Innovation'].map(p => (
+                    <span key={p} className="text-xl md:text-2xl font-black tracking-tight whitespace-nowrap">{p}</span>
+                  ))}
+               </div>
             </section>
           </>
         )}
