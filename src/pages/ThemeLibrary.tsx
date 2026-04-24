@@ -16,6 +16,9 @@ import knexusMobileActualImg from '../assets/images/knexus_mobile_actual.png';
 import kookmin25ActualImg from '../assets/images/kookmin25_actual.png';
 import kookmin25MobileActualImg from '../assets/images/kookmin25_mobile_actual.png';
 import bokjiActualImg from '../assets/images/evergov_desktop.png'; // Using the one I generated
+import evergovNetworkActualImg from '../assets/images/evergov_network.png';
+import kareumDesktopImg from '../assets/images/kareum/hero_main.png';
+import kareumMobileImg from '../assets/images/kareum/village_green.png';
 
 
 
@@ -32,10 +35,13 @@ const themeLibraryData = [
   { id: 6, title: 'K-Nexus', category: '포털사이트', imgColor: 'bg-white', desktopThumbnail: knexusActualImg, mobileThumbnail: knexusMobileActualImg },
   { id: 7, title: '국민25시', category: '관공서', imgColor: 'bg-[#002758]', desktopThumbnail: kookmin25ActualImg, mobileThumbnail: kookmin25MobileActualImg },
   { id: 8, title: 'Bokji', category: '관공서', imgColor: 'bg-white', desktopThumbnail: bokjiActualImg, mobileThumbnail: bokjiActualImg },
+  { id: 9, title: 'Gov-Network', category: '관공서', imgColor: 'bg-[#F8FAFC]', desktopThumbnail: evergovNetworkActualImg, mobileThumbnail: evergovNetworkActualImg },
+  { id: 10, title: 'KAREUM', category: '관공서', imgColor: 'bg-[#FAFAFA]', desktopThumbnail: kareumDesktopImg, mobileThumbnail: kareumMobileImg },
+
   
-  // 9번부터 40번까지 모두 빈 템플릿 (Coming Soon)으로 통일
-  ...Array.from({ length: 32 }, (_, i) => ({
-    id: i + 9,
+  // 11번부터 40번까지 모두 빈 템플릿 (Coming Soon)으로 통일
+  ...Array.from({ length: 30 }, (_, i) => ({
+    id: i + 11,
 
     title: `Coming Soon ${i + 1}`,
     category: '기타',

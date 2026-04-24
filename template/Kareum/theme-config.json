@@ -1,0 +1,15 @@
+{
+  "name": "Kareum",
+  "category": "관공서",
+  "colors": {
+    "primary": "#4A7c59",
+    "secondary": "#E8E1D9",
+    "background": "#FAFAFA",
+    "text": "#2D3748",
+    "accent": "#F6AD55"
+  },
+  "fonts": {
+    "heading": "'Noto Serif KR', serif",
+    "body": "'Pretendard', sans-serif"
+  }
+}

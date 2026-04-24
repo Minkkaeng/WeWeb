@@ -13,7 +13,8 @@ import NaamTemplate from '../template/NAAM/index'
 import KNexusTemplate from '../template/K-Nexus/index'
 import EverGovBokjiTemplate from '../template/Bokji/index'
 import Kookmin25Template from '../template/Kookmin25/index'
-
+import GovNetworkTemplate from '../template/Gov-Network/index'
+import KareumTemplate from '../template/Kareum/index'
 
 function NotFound() {
 
@@ -64,7 +65,8 @@ function App() {
           <Route path="/template/knexus" element={<KNexusTemplate />} />
           <Route path="/template/bokji" element={<EverGovBokjiTemplate />} />
           <Route path="/template/kookmin25" element={<Kookmin25Template />} />
-
+          <Route path="/template/gov-network" element={<GovNetworkTemplate />} />
+          <Route path="/template/kareum" element={<KareumTemplate />} />
 
 
           <Route path="*" element={<NotFound />} />
