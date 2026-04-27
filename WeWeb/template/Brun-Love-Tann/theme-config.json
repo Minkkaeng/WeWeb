@@ -1,0 +1,32 @@
+{
+  "name": "Brun-Love-Tann",
+  "displayName": "BRUN LØVE TANN",
+  "version": "4.1.0",
+  "colors": {
+    "background": "#f3e9dc",
+    "primary": "#be3127",
+    "accent": "#c0c0c0",
+    "charcoal": "#1a1a1a",
+    "text": "#000000",
+    "border": "#000000",
+    "white": "#ffffff",
+    "glass": "rgba(255, 255, 255, 0.4)"
+  },
+  "fonts": {
+    "heading": "'Antonio', sans-serif-condensed",
+    "body": "'Inter', sans-serif"
+  },
+  "visuals": {
+    "blur": "24px",
+    "radius": "40px",
+    "grain": true
+  },
+  "ticker": { "text": "BRUN LØVE TANN — CHAPTER 2: THE REBIRTH" },
+  "navLinks": [
+    { "label": "THE VISION", "href": "#home" },
+    { "label": "COLLECTION", "href": "#products" },
+    { "label": "EDITORIAL", "href": "#story" },
+    { "label": "CRAFT LIBRARY", "href": "#home" },
+    { "label": "CONTACT", "href": "#contact" }
+  ]
+}

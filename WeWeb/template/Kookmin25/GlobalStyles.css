@@ -1,0 +1,83 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+:root {
+  --km-primary: #002758;
+  --km-secondary: #0055A4;
+  --km-accent: #E63946;
+  --km-bg: #FFFFFF;
+  --km-surface: #F4F7F9;
+  --km-text: #111111;
+  --km-text-muted: #6B7280;
+  --km-border: #E5E7EB;
+}
+
+.km-root {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  color: var(--km-text);
+  background-color: var(--km-bg);
+  line-height: 1.6;
+  overflow-x: hidden; /* 가로 스크롤 방지 */
+}
+
+.km-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px; /* 모바일 여백 px-4 */
+}
+
+@media (min-width: 1024px) {
+  .km-container {
+    padding: 0 32px; /* 데스크톱 여백 px-8 */
+  }
+}
+
+.km-btn-primary {
+  background-color: var(--km-primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.km-btn-primary:hover {
+  background-color: var(--km-secondary);
+}
+
+.km-section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--km-primary);
+  letter-spacing: -0.025em;
+  margin-bottom: 1rem;
+}
+
+.km-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background-color: var(--km-surface);
+  color: var(--km-primary);
+}
+
+/* Custom Scrollbar for Template */
+.km-root::-webkit-scrollbar {
+  width: 8px;
+}
+
+.km-root::-webkit-scrollbar-track {
+  background: var(--km-surface);
+}
+
+.km-root::-webkit-scrollbar-thumb {
+  background: var(--km-border);
+  border-radius: 4px;
+}
+
+.km-root::-webkit-scrollbar-thumb:hover {
+  background: #D1D5DB;
+}
