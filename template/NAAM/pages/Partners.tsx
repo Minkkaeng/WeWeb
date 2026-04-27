@@ -4,12 +4,6 @@ import { Send, CheckCircle2, Building2, Store, Truck } from 'lucide-react';
 
 export default function Partners() {
   const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    company: '',
-    email: '',
-    message: ''
-  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
