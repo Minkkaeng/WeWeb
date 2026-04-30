@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --eg-primary: #2563EB;
+  --eg-primary-hover: #1D4ED8;
+  --eg-secondary: #F97316;
+  --eg-accent: #F59E0B;
+  --eg-background: #FFFFFF;
+  --eg-surface: #F9FAFB;
+  --eg-text: #1F2937;
+  --eg-text-muted: #6B7280;
+  --eg-border: #E5E7EB;
+  --eg-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --eg-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.eg-root {
+  font-family: 'Inter', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  color: var(--eg-text);
+  background-color: var(--eg-background);
+  scroll-behavior: smooth;
+}
+
+.eg-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.eg-section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+/* Custom Components Styles */
+.eg-button-primary {
+  background-color: var(--eg-primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.eg-button-primary:hover {
+  background-color: var(--eg-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--eg-shadow);
+}
+
+.eg-card {
+  background: white;
+  border-radius: 1.25rem;
+  border: 1px solid var(--eg-border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.eg-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--eg-shadow-lg);
+  border-color: var(--eg-primary);
+}
+
+.eg-glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Board Overrides for Monorepo Component */
+fw-board-list {
+  display: block;
+  width: 100%;
+}
+
+fw-board-list table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+}
+
+fw-board-list th {
+  text-align: left;
+  padding: 1rem;
+  color: var(--eg-text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-bottom: 2px solid var(--eg-surface);
+}
+
+fw-board-list td {
+  padding: 1.25rem 1rem;
+  background: white;
+  transition: background 0.2s;
+}
+
+fw-board-list tr[data-action="post"] {
+  cursor: pointer;
+}
+
+fw-board-list tr[data-action="post"]:hover td {
+  background: var(--eg-surface);
+  color: var(--eg-primary);
+}
+
+fw-board-list header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+fw-board-list h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+fw-board-list button[data-action="write"] {
+  background: var(--eg-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}

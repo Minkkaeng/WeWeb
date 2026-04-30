@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Plus } from 'lucide-react';
+import { Search, SlidersHorizontal, Plus } from 'lucide-react';
 import { useCart } from '../index';
 
 import prodSourdough from '../../../src/assets/images/product_sourdough.png';

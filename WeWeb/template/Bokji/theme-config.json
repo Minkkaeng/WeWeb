@@ -1,0 +1,23 @@
+{
+  "name": "EverGov-Bokji",
+  "category": "관공서",
+  "colors": {
+    "primary": "#2563EB",
+    "primaryHover": "#1D4ED8",
+    "secondary": "#F97316",
+    "accent": "#F59E0B",
+    "warm": "#FFEDD5",
+    "background": "#FFFFFF",
+    "surface": "#F9FAFB",
+    "text": "#1F2937",
+    "textMuted": "#6B7280"
+  },
+  "fonts": {
+    "main": "'Inter', 'Pretendard', sans-serif"
+  },
+  "metadata": {
+    "description": "관공서 및 사회복지 포털을 위한 고품격 템플릿",
+    "author": "Antigravity",
+    "version": "1.0.0"
+  }
+}
