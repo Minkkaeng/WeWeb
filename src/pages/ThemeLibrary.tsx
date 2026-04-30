@@ -19,12 +19,15 @@ import nongshimActualImg from '../assets/images/nongshim_actual.png';
 import nongshimMobileActualImg from '../assets/images/nongshim_mobile_actual.png';
 import allpetActualImg from '../assets/images/allpet_desktop.png';
 import allpetMobileActualImg from '../assets/images/allpet_mobile.png';
+import bokjiActualImg from '../assets/images/evergov_desktop.png';
+import evergovNetworkActualImg from '../assets/images/evergov_network.png';
+import kareumDesktopImg from '../assets/images/kareum/hero_main.png';
+import kareumMobileImg from '../assets/images/kareum/village_green.png';
 
 
 const categories = ['ALL', '쇼핑몰', '기업 브랜드', '관공서', '포털사이트', '기타'];
 
 const themeLibraryData = [
-  // 이미지가 있는 주요 템플릿 (첫 번째 줄 및 추가)
   { id: 1, title: 'GRAND TASTE', category: '쇼핑몰', imgColor: 'bg-white', desktopThumbnail: nongshimActualImg, mobileThumbnail: nongshimMobileActualImg },
   { id: 2, title: 'FRESH GROVE', category: '쇼핑몰', imgColor: 'bg-emerald-50', desktopThumbnail: freshActualImg, mobileThumbnail: freshMobileActualImg },
   { id: 3, title: 'WISE', category: '쇼핑몰', imgColor: 'bg-black', desktopThumbnail: wiseActualImg, mobileThumbnail: wiseMobileActualImg },
@@ -34,10 +37,13 @@ const themeLibraryData = [
   { id: 7, title: 'K-Nexus', category: '관공서', imgColor: 'bg-white', desktopThumbnail: knexusActualImg, mobileThumbnail: knexusMobileActualImg },
   { id: 8, title: '국민25시', category: '관공서', imgColor: 'bg-[#002758]', desktopThumbnail: kookmin25ActualImg, mobileThumbnail: kookmin25MobileActualImg },
   { id: 9, title: 'ALLPET', category: '포털사이트', imgColor: 'bg-[#FF4D4D]', desktopThumbnail: allpetActualImg, mobileThumbnail: allpetMobileActualImg },
+  { id: 10, title: 'Bokji', category: '관공서', imgColor: 'bg-white', desktopThumbnail: bokjiActualImg, mobileThumbnail: bokjiActualImg },
+  { id: 11, title: 'Gov-Network', category: '관공서', imgColor: 'bg-[#F8FAFC]', desktopThumbnail: evergovNetworkActualImg, mobileThumbnail: evergovNetworkActualImg },
+  { id: 12, title: 'KAREUM', category: '관공서', imgColor: 'bg-[#FAFAFA]', desktopThumbnail: kareumDesktopImg, mobileThumbnail: kareumMobileImg },
   
-  // 10번부터 40번까지 모두 빈 템플릿 (Coming Soon)으로 통일
-  ...Array.from({ length: 31 }, (_, i) => ({
-    id: i + 10,
+  // 13번부터 40번까지 빈 템플릿
+  ...Array.from({ length: 28 }, (_, i) => ({
+    id: i + 13,
     title: `Coming Soon ${i + 1}`,
     category: '기타',
     imgColor: 'bg-gray-50',

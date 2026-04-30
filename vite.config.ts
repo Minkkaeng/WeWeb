@@ -4,7 +4,13 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig(({ command }) => ({
-  plugins: [react()],
+  plugins: [
+    react({
+      babel: {
+        plugins: ['@onlook/babel-plugin-react'],
+      },
+    }),
+  ],
   base: command === 'build' ? '/WeWeb/' : '/',
   resolve: {
     alias: {

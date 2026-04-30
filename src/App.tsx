@@ -15,6 +15,9 @@ import EverGovBokjiTemplate from '../template/Bokji/index'
 import Kookmin25Template from '../template/Kookmin25/index'
 import GovNetworkTemplate from '../template/Gov-Network/index'
 import KareumTemplate from '../template/Kareum/index'
+import AllPetTemplate from '../template/ALLPET/index'
+import GrandTasteTemplate from '../template/Grand-Taste/index'
+import KinnCollectiveTemplate from '../template/Kinn-Collective/index'
 
 function NotFound() {
 
@@ -65,8 +68,11 @@ function App() {
           <Route path="/template/knexus" element={<KNexusTemplate />} />
           <Route path="/template/bokji" element={<EverGovBokjiTemplate />} />
           <Route path="/template/kookmin25" element={<Kookmin25Template />} />
-          <Route path="/template/gov-network" element={<GovNetworkTemplate />} />
+           <Route path="/template/gov-network" element={<GovNetworkTemplate />} />
           <Route path="/template/kareum" element={<KareumTemplate />} />
+          <Route path="/template/allpet" element={<AllPetTemplate />} />
+          <Route path="/template/grand-taste" element={<GrandTasteTemplate />} />
+          <Route path="/template/kinn-collective" element={<KinnCollectiveTemplate />} />
 
 
           <Route path="*" element={<NotFound />} />
