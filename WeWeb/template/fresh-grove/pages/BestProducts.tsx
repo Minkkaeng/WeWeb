@@ -1,5 +1,5 @@
 import config from '../theme-config.json';
-import '@packages/ui/src/ProductCard';
+import '@packages/ui/ProductCard';
 
 const products = [
   { name: "Natural Oak Lounge Chair", price: 450000, category: "Furniture", image: "https://picsum.photos/id/10/800/1000", desc: "편안하고 튼튼한 오크 소재 라운지 체어" },

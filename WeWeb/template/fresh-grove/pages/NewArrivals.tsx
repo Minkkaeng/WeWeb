@@ -1,5 +1,5 @@
 import config from '../theme-config.json';
-import '@packages/ui/src/ProductCard';
+import '@packages/ui/ProductCard';
 
 const arrivals = [
   { name: "Artisan Wood Chair", price: 320000, category: "Furniture", image: "https://picsum.photos/id/50/800/1000", desc: "수제 목재 라운지 체어" },

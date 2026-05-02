@@ -1,5 +1,5 @@
 import config from '../theme-config.json';
-import '@packages/ui/src/Hero'; // Register <fw-hero>
+import '@packages/ui/Hero'; // Register <fw-hero>
 
 export default function Home() {
   return (

@@ -8,7 +8,7 @@ import NewArrivals from './pages/NewArrivals';
 import Magazine from './pages/Magazine';
 import InstagramFeed from './pages/InstagramFeed';
 import BrandStory from './pages/BrandStory';
-import '@packages/ui/src/CartSidebar';
+import '@packages/ui/CartSidebar';
 
 export default function FreshGroveTemplate() {
   const [cartItems, setCartItems] = useState<any[]>([]);

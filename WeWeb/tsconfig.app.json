@@ -29,5 +29,5 @@
       "@framework/utils": ["../Monorepo/packages/utils/src"]
     }
   },
-  "include": ["src", "template"]
+  "include": ["src", "template", "../Monorepo/packages/ui/src", "../Monorepo/packages/utils/src"]
 }

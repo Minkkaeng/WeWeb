@@ -1,5 +1,5 @@
 // config import removed to fix TS6133
-import '@packages/ui/src/Banner';
+import '@packages/ui/Banner';
 
 export default function EventBanner() {
   const images = JSON.stringify([

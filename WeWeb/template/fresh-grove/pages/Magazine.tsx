@@ -1,5 +1,5 @@
 // config import removed to fix TS6133
-import '@packages/ui/src/Features';
+import '@packages/ui/Features';
 
 export default function Magazine() {
   const magazineItems = JSON.stringify([

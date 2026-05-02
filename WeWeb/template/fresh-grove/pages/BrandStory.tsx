@@ -1,5 +1,5 @@
 import config from '../theme-config.json';
-import '@packages/ui/src/Footer';
+import '@packages/ui/Footer';
 
 export default function BrandStory() {
   const footerLinks = JSON.stringify([

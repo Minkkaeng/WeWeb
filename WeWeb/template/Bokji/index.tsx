@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 // Monorepo registration - Import the module to register custom elements
-import '../../../Monorepo/packages/ui/src/index'; 
+import '@packages/ui/index';
 
 import './GlobalStyles.css';
 
