@@ -107,7 +107,7 @@ export const ThemeLibrary = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
           >
             {filteredThemes.map((theme, index) => (
               <motion.div
@@ -127,7 +127,7 @@ export const ThemeLibrary = () => {
                 className="group cursor-pointer flex flex-col outline-none focus-visible:ring-2 focus-visible:ring-blood-coral rounded-2xl"
               >
                 {/* Card Image Area */}
-                <div className="relative w-full aspect-[3/4] bg-gray-100 border border-gray-100 rounded-2xl overflow-hidden mb-4 shadow-sm group-hover:shadow-xl transition-shadow duration-500">
+                <div className="relative w-full aspect-[16/10] bg-gray-100 border border-gray-100 rounded-2xl overflow-hidden mb-4 shadow-sm group-hover:shadow-xl transition-shadow duration-500">
                   {/* Template Full Cover */}
                   {theme.desktopThumbnail ? (
                     <img src={theme.desktopThumbnail} alt={`${theme.title} Preview`} className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
