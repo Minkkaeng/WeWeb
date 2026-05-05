@@ -1,0 +1,31 @@
+{
+  "name": "K-Nexus",
+  "displayName": "K-Nexus Career Hub",
+  "version": "1.0.0",
+  "colors": {
+    "primary": "#00508C",
+    "secondary": "#002D5A",
+    "accent": "#00A9E0",
+    "background": "#F4F7F9",
+    "mint": "#E9F2EE",
+    "text": "#222222",
+    "white": "#FFFFFF",
+    "border": "#E1E8ED",
+    "glass": "rgba(255, 255, 255, 0.7)"
+  },
+  "fonts": {
+    "heading": "'Outfit', sans-serif",
+    "body": "'Inter', sans-serif"
+  },
+  "visuals": {
+    "radius": "12px",
+    "shadow": "0 10px 30px rgba(0, 80, 140, 0.08)",
+    "blur": "12px"
+  },
+  "navLinks": [
+    { "label": "CAREER DNA", "href": "#about" },
+    { "label": "NETWORKING", "href": "#services" },
+    { "label": "INSIGHTS", "href": "#insights" },
+    { "label": "GOV-CONNECT", "href": "#contact" }
+  ]
+}
