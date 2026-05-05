@@ -11,8 +11,8 @@ export const Header = () => {
   // HashRouter에서 앵커 스크롤 처리
   const scrollToSection = (sectionId: string) => {
     setIsMobileMenuOpen(false);
-    if (location.pathname !== '/') {
-      navigate('/');
+    if (location.pathname !== '/about') {
+      navigate('/about');
       // 페이지 전환 후 스크롤
       setTimeout(() => {
         document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
@@ -37,8 +37,8 @@ export const Header = () => {
         {/* 데스크톱 네비게이션 */}
         <div className="hidden md:flex items-center gap-8">
           <nav className="flex gap-8 text-sm font-medium text-gray-600">
+            <Link to="/" className="text-blood-coral font-bold hover:-translate-y-0.5 transition-all">Library</Link>
             <button onClick={() => scrollToSection('work')} className="hover:text-blood-coral transition-all">Work</button>
-            <Link to="/theme" className="text-blood-coral font-bold hover:-translate-y-0.5 transition-all">Library</Link>
             <button onClick={() => scrollToSection('about')} className="hover:text-blood-coral transition-all">About</button>
             <button onClick={() => scrollToSection('contact')} className="hover:text-blood-coral transition-all">Contact</button>
           </nav>
@@ -66,8 +66,8 @@ export const Header = () => {
             className="md:hidden overflow-hidden bg-white/95 backdrop-blur-md border-t border-gray-100"
           >
             <div className="flex flex-col px-6 py-4 gap-4 text-sm font-medium text-gray-600">
+              <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="py-2 text-blood-coral font-bold transition-all">Library</Link>
               <button onClick={() => { setIsMobileMenuOpen(false); scrollToSection('work'); }} className="py-2 text-left hover:text-blood-coral transition-all">Work</button>
-              <Link to="/theme" onClick={() => setIsMobileMenuOpen(false)} className="py-2 text-blood-coral font-bold transition-all">Library</Link>
               <button onClick={() => { setIsMobileMenuOpen(false); scrollToSection('about'); }} className="py-2 text-left hover:text-blood-coral transition-all">About</button>
               <button onClick={() => { setIsMobileMenuOpen(false); scrollToSection('contact'); }} className="py-2 text-left hover:text-blood-coral transition-all">Contact</button>
             </div>

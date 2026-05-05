@@ -15,6 +15,10 @@ import EverGovBokjiTemplate from '../template/Bokji/index'
 import Kookmin25Template from '../template/Kookmin25/index'
 import GovNetworkTemplate from '../template/Gov-Network/index'
 import KareumTemplate from '../template/Kareum/index'
+import LeafLineTemplate from '../template/Leaf-Line/index'
+import AllPetTemplate from '../template/ALLPET/index'
+import GrandTasteTemplate from '../template/Grand-Taste/index'
+import BrunLoveTannTemplate from '../template/Brun-Love-Tann/index'
 
 function NotFound() {
 
@@ -53,8 +57,8 @@ function App() {
         {!isTemplateRoute && <Header />}
 
         <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/theme" element={<ThemeLibrary />} />
+          <Route path="/" element={<ThemeLibrary />} />
+          <Route path="/about" element={<Landing />} />
           {/* 독립된 템플릿 전용 라우트 */}
           <Route path="/template/minimalist-studio" element={<MinimalistStudioTemplate />} />
           <Route path="/template/fresh-grove" element={<FreshGroveTemplate />} />
@@ -67,6 +71,10 @@ function App() {
           <Route path="/template/kookmin25" element={<Kookmin25Template />} />
           <Route path="/template/gov-network" element={<GovNetworkTemplate />} />
           <Route path="/template/kareum" element={<KareumTemplate />} />
+          <Route path="/template/leaf-line" element={<LeafLineTemplate />} />
+          <Route path="/template/allpet/*" element={<AllPetTemplate />} />
+          <Route path="/template/grand-taste" element={<GrandTasteTemplate />} />
+          <Route path="/template/brun-love-tann" element={<BrunLoveTannTemplate />} />
 
 
           <Route path="*" element={<NotFound />} />

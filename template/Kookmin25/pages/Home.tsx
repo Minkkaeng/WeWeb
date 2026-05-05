@@ -63,7 +63,7 @@ export default function Home() {
                 className={`p-6 md:p-10 flex flex-col items-center text-center cursor-pointer transition-colors border-r border-b border-gray-50 last:border-r-0`}
               >
                 <div className="w-12 h-12 md:w-16 md:h-16 bg-[#F4F7F9] rounded-xl md:rounded-2xl flex items-center justify-center text-[#002758] mb-4 md:mb-6 group-hover:scale-110 transition-transform">
-                  {React.cloneElement(s.icon as React.ReactElement, { size: 24, className: "md:w-7 md:h-7" })}
+                  {React.cloneElement(s.icon as React.ReactElement<any>, { size: 24, className: "md:w-7 md:h-7" })}
                 </div>
                 <h3 className="text-sm md:text-base font-extrabold text-[#002758] mb-1 md:mb-2">{s.title}</h3>
                 <p className="hidden md:block text-[11px] text-gray-400 font-bold uppercase tracking-tighter leading-tight whitespace-pre-wrap">{s.desc}</p>

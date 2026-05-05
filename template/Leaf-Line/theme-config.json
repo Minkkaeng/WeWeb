@@ -1,0 +1,26 @@
+{
+  "id": "leaf-line",
+  "name": "LEAF & LINE",
+  "displayName": "LEAF & LINE (Urban Greenhouse)",
+  "description": "차가운 도시적 스트릿 감성에 식물(Green)과 햇살(Yellow)의 에너지를 더한 내추럴 스트릿 커머스",
+  "category": "커머스",
+  "tags": ["Street", "Minimal", "Nature", "Ecommerce"],
+  "colors": {
+    "primary": "#004D40",
+    "secondary": "#E6FF00",
+    "background": "#FFFFFF",
+    "surface": "#F9F9F9",
+    "text": {
+      "primary": "#121212",
+      "secondary": "#4A4A4A",
+      "accent": "#004D40"
+    },
+    "border": "#E5E7EB"
+  },
+  "typography": {
+    "fontFamily": {
+      "heading": "'Pretendard', 'Inter', sans-serif",
+      "body": "'Pretendard', 'Inter', sans-serif"
+    }
+  }
+}

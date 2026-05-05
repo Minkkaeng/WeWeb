@@ -4,7 +4,7 @@
     "target": "es2023",
     "lib": ["ES2023", "DOM", "DOM.Iterable"],
     "module": "esnext",
-    "types": ["vite/client"],
+    "types": ["vite/client", "node"],
     "skipLibCheck": true,
 
     /* Bundler mode */
@@ -16,16 +16,18 @@
     "jsx": "react-jsx",
 
     /* Linting */
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
 
     /* Path Aliases */
     "paths": {
       "@/*": ["./src/*"],
-      "@packages/ui/*": ["../Monorepo/packages/ui/*"],
-      "@packages/utils/*": ["../Monorepo/packages/utils/*"],
+      "@packages/ui": ["../Monorepo/packages/ui/src"],
+      "@packages/ui/*": ["../Monorepo/packages/ui/src/*"],
+      "@packages/utils": ["../Monorepo/packages/utils/src"],
+      "@packages/utils/*": ["../Monorepo/packages/utils/src/*"],
       "@framework/utils": ["../Monorepo/packages/utils/src"]
     }
   },

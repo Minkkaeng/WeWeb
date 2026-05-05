@@ -19,6 +19,11 @@ import bokjiActualImg from '../assets/images/evergov_desktop.png'; // Using the 
 import evergovNetworkActualImg from '../assets/images/evergov_network.png';
 import kareumDesktopImg from '../assets/images/kareum/hero_main.png';
 import kareumMobileImg from '../assets/images/kareum/village_green.png';
+import leafLineActualImg from '../assets/images/leaf_line_actual.png';
+import leafLineMobileActualImg from '../assets/images/leaf_line_mobile_actual.png';
+import allpetActualImg from '../assets/images/allpet_actual.png';
+import grandTasteActualImg from '../assets/images/grand_taste_actual.png';
+import brunLoveTannActualImg from '../assets/images/brun_love_tann_actual.png';
 
 
 
@@ -29,7 +34,7 @@ const themeLibraryData = [
   // 이미지가 있는 주요 템플릿 4개 (첫 번째 줄)
   { id: 1, title: 'FRESH GROVE', category: '쇼핑몰', imgColor: 'bg-emerald-50', desktopThumbnail: freshActualImg, mobileThumbnail: freshMobileActualImg },
   { id: 2, title: 'WISE', category: '쇼핑몰', imgColor: 'bg-black', desktopThumbnail: wiseActualImg, mobileThumbnail: wiseMobileActualImg },
-  { id: 3, title: 'PICK', category: '쇼핑몰', imgColor: 'bg-stone-100', desktopThumbnail: pickActualImg, mobileThumbnail: pickMobileActualImg },
+  { id: 3, title: 'PICK', category: '쇼핑몰', imgColor: 'bg-[#f3e9dc]', desktopThumbnail: pickActualImg, mobileThumbnail: pickMobileActualImg },
   { id: 4, title: 'MINIMAL', category: '기업 브랜드', imgColor: 'bg-[#111111]', desktopThumbnail: minimalActualImg, mobileThumbnail: minimalMobileActualImg },
   { id: 5, title: 'NAAM', category: '쇼핑몰', imgColor: 'bg-[#FDF6E3]', desktopThumbnail: naamActualImg, mobileThumbnail: naamMobileActualImg },
   { id: 6, title: 'K-Nexus', category: '포털사이트', imgColor: 'bg-white', desktopThumbnail: knexusActualImg, mobileThumbnail: knexusMobileActualImg },
@@ -37,11 +42,15 @@ const themeLibraryData = [
   { id: 8, title: 'Bokji', category: '관공서', imgColor: 'bg-white', desktopThumbnail: bokjiActualImg, mobileThumbnail: bokjiActualImg },
   { id: 9, title: 'Gov-Network', category: '관공서', imgColor: 'bg-[#F8FAFC]', desktopThumbnail: evergovNetworkActualImg, mobileThumbnail: evergovNetworkActualImg },
   { id: 10, title: 'KAREUM', category: '관공서', imgColor: 'bg-[#FAFAFA]', desktopThumbnail: kareumDesktopImg, mobileThumbnail: kareumMobileImg },
+  { id: 11, title: 'LEAF & LINE', category: '쇼핑몰', imgColor: 'bg-white', desktopThumbnail: leafLineActualImg, mobileThumbnail: leafLineMobileActualImg },
+  { id: 12, title: 'ALLPET', category: '포털사이트', imgColor: 'bg-white', desktopThumbnail: allpetActualImg, mobileThumbnail: '' },
+  { id: 13, title: 'Grand-Taste', category: '쇼핑몰', imgColor: 'bg-black', desktopThumbnail: grandTasteActualImg, mobileThumbnail: '' },
+  { id: 14, title: 'Brun-Love-Tann', category: '쇼핑몰', imgColor: 'bg-stone-900', desktopThumbnail: brunLoveTannActualImg, mobileThumbnail: '' },
 
   
   // 11번부터 40번까지 모두 빈 템플릿 (Coming Soon)으로 통일
-  ...Array.from({ length: 30 }, (_, i) => ({
-    id: i + 11,
+  ...Array.from({ length: 26 }, (_, i) => ({
+    id: i + 15,
 
     title: `Coming Soon ${i + 1}`,
     category: '기타',
@@ -130,7 +139,7 @@ export const ThemeLibrary = () => {
                   )}
 
                   {/* Mobile Mockup Reveal */}
-                  <div className="absolute -bottom-8 -right-8 w-32 h-56 bg-white rounded-[24px] shadow-2xl border-4 border-gray-900 translate-y-12 rotate-12 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:-rotate-3 transition-all duration-500 ease-out z-10 hidden sm:flex flex-col items-center overflow-hidden">
+                  <div className="absolute -bottom-8 -right-8 w-32 h-56 bg-white rounded-[24px] shadow-2xl translate-y-12 rotate-12 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:-rotate-3 transition-all duration-500 ease-out z-10 hidden sm:flex flex-col items-center overflow-hidden">
                     <div className="w-12 h-1 bg-gray-300 absolute top-2 rounded-full z-20"></div>
                     {theme.mobileThumbnail ? (
                        <img src={theme.mobileThumbnail} alt="Mobile Preview" className="w-full h-full object-cover object-top" />

@@ -16,7 +16,7 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-      setIframeLoaded(false); // 리셋
+      setIframeLoaded(false);
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -25,7 +25,6 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
     };
   }, [isOpen]);
 
-  // ESC 키로 닫기
   useEffect(() => {
     if (!isOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -44,21 +43,14 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
           exit={{ opacity: 0 }}
           onClick={onClose}
           className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex flex-col cursor-pointer"
-          role="dialog"
-          aria-modal="true"
-          aria-label={`${themeTitle} 미리보기`}
         >
-          {/* Modal Header */}
+          {/* Header */}
           <div 
             onClick={(e) => e.stopPropagation()}
             className="h-16 flex items-center justify-between px-6 bg-black/40 border-b border-white/10 text-white flex-shrink-0 cursor-default"
           >
             <div className="flex items-center gap-4 w-1/3">
-              <button
-                onClick={onClose}
-                className="p-2 hover:bg-white/10 rounded-full transition-colors"
-                aria-label="닫기"
-              >
+              <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-full transition-colors">
                 <X size={24} />
               </button>
               <div>
@@ -67,88 +59,86 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
               </div>
             </div>
 
-            {/* Device Toggle */}
             <div className="w-1/3 flex justify-center">
               <div className="flex items-center bg-white/5 rounded-lg p-1">
                 <button
                   onClick={() => setDevice('desktop')}
-                  aria-label="데스크톱 보기"
                   className={`p-2 rounded-md transition-all ${device === 'desktop' ? 'bg-white/20 text-white' : 'text-gray-400 hover:text-white'}`}
                 >
                   <Monitor size={20} />
                 </button>
                 <button
                   onClick={() => setDevice('mobile')}
-                  aria-label="모바일 보기"
                   className={`p-2 rounded-md transition-all ${device === 'mobile' ? 'bg-white/20 text-white' : 'text-gray-400 hover:text-white'}`}
                 >
                   <Smartphone size={20} />
                 </button>
               </div>
             </div>
-
-            {/* CTA */}
-            <div className="w-1/3 flex justify-end">
-            </div>
+            <div className="w-1/3"></div>
           </div>
 
           {/* Preview Container */}
-          <div className="flex-1 overflow-hidden flex justify-center py-6 px-6 lg:px-12">
+          <div className={`flex-1 overflow-hidden flex justify-center ${device === 'desktop' ? 'py-6 px-6 lg:px-12' : 'p-0'}`}>
             <motion.div
-              initial={{ width: '100%', maxWidth: '1600px' }}
-              animate={{
-                width: '100%',
-                maxWidth: device === 'desktop' ? '1600px' : '375px'
+              initial={{ width: '100%', maxWidth: '1600px', height: '100%' }}
+              animate={{ 
+                width: '100%', 
+                maxWidth: device === 'desktop' ? '1600px' : '390px',
+                height: device === 'desktop' ? '100%' : '844px',
+                maxHeight: '100%'
               }}
               transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative bg-white rounded-xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] flex flex-col cursor-default"
-              style={{ height: '100%' }}
+              className={`relative bg-white overflow-hidden flex flex-col cursor-default ${device === 'desktop' ? 'rounded-xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] h-full' : ''}`}
             >
-              {/* Scrollable Content Area */}
-               <div className="flex-1 bg-gray-50 flex flex-col items-center overflow-y-auto no-scrollbar relative">
-                  {['MINIMAL', 'FRESH GROVE', 'WISE', 'PICK', 'NAAM', 'K-NEXUS', 'BOKJI', '국민25시', 'GOV-NETWORK', 'KAREUM'].includes(themeTitle.toUpperCase()) ? (
+              <div className="flex-1 bg-gray-50 flex flex-col items-center overflow-y-auto no-scrollbar relative">
+                {(() => {
+                  const previewMap: Record<string, string> = {
+                    'MINIMAL': '/template/minimalist-studio',
+                    'FRESH GROVE': '/template/fresh-grove',
+                    'WISE': '/template/wise',
+                    'PICK': '/template/pick',
+                    'NAAM': '/template/naam',
+                    'BOKJI': '/template/bokji',
+                    '국민25시': '/template/kookmin25',
+                    'GOV-NETWORK': '/template/gov-network',
+                    'KAREUM': '/template/kareum',
+                    'LEAF & LINE': '/template/leaf-line',
+                    'ALLPET': '/template/allpet',
+                    'GRAND-TASTE': '/template/grand-taste',
+                    'BRUN-LOVE-TANN': '/template/brun-love-tann',
+                    'K-NEXUS': '/template/knexus'
+                  };
+                  const normalizedTitle = themeTitle.toUpperCase();
+                  const previewUrl = previewMap[normalizedTitle];
 
-                    <>
-                      {!iframeLoaded && (
-                        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-50 z-10">
-                          <div className="w-8 h-8 border-4 border-gray-200 border-t-black rounded-full animate-spin"></div>
-                          <p className="mt-4 text-sm text-gray-500 font-light">템플릿 렌더링 중...</p>
-                        </div>
-                      )}
-                      <iframe 
-                        src={
-                          themeTitle.toUpperCase() === 'MINIMAL' ? "/template/minimalist-studio" : 
-                          themeTitle.toUpperCase() === 'FRESH GROVE' ? "/template/fresh-grove" : 
-                          themeTitle.toUpperCase() === 'WISE' ? "/template/wise" : 
-                          themeTitle.toUpperCase() === 'PICK' ? "/template/pick" :
-                          themeTitle.toUpperCase() === 'NAAM' ? "/template/naam" :
-                          themeTitle.toUpperCase() === 'BOKJI' ? "/template/bokji" :
-                          themeTitle.toUpperCase() === '국민25시' ? "/template/kookmin25" :
-                          themeTitle.toUpperCase() === 'GOV-NETWORK' ? "/template/gov-network" :
-                          themeTitle.toUpperCase() === 'KAREUM' ? "/template/kareum" :
-                          "/template/knexus"
-
-                        } 
-                       className={`w-full h-full border-0 transition-opacity duration-1000 ${iframeLoaded ? 'opacity-100' : 'opacity-0'}`}
-                       onLoad={() => setIframeLoaded(true)}
-                       title="Template Preview"
-                     />
-                   </>
-                 ) : (
-                   <div className="flex-1 flex flex-col items-center justify-center p-8 mt-20 text-center text-gray-400 font-light w-full overflow-y-auto no-scrollbar">
-                     <Monitor size={48} className="mx-auto mb-4 opacity-30" />
-                     <p className="text-lg">미리보기 화면입니다.</p>
-                     <p className="text-sm">선택하신 '{themeTitle}' 테마의 미리보기 페이지를 준비 중입니다.</p>
-                     <br/>
-                     <br/>
-                     <br/>
-                     <p className="text-xs">Scroll Test</p>
-                     <div className="h-[2000px] w-full max-w-4xl mt-4 bg-gradient-to-b from-gray-100 to-gray-200 rounded-lg flex items-end justify-center pb-8 mx-auto">
-                        <span className="text-gray-300">End of Theme Template</span>
-                     </div>
-                   </div>
-                 )}
+                  if (previewUrl) {
+                    return (
+                      <>
+                        {!iframeLoaded && (
+                          <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-50 z-10">
+                            <div className="w-8 h-8 border-4 border-gray-200 border-t-black rounded-full animate-spin"></div>
+                            <p className="mt-4 text-sm text-gray-500 font-light">템플릿 렌더링 중...</p>
+                          </div>
+                        )}
+                        <iframe 
+                          src={previewUrl} 
+                          className={`w-full h-full border-0 transition-opacity duration-1000 ${iframeLoaded ? 'opacity-100' : 'opacity-0'}`}
+                          onLoad={() => setIframeLoaded(true)}
+                          title="Template Preview"
+                        />
+                      </>
+                    );
+                  }
+                  return (
+                    <div className="flex-1 flex flex-col items-center justify-center p-8 mt-20 text-center text-gray-400 font-light w-full">
+                      <Monitor size={48} className="mx-auto mb-4 opacity-30" />
+                      <p className="text-lg">미리보기 화면입니다.</p>
+                      <p className="text-sm">선택하신 '{themeTitle}' 테마의 미리보기 페이지를 준비 중입니다.</p>
+                    </div>
+                  );
+                })()}
               </div>
             </motion.div>
           </div>

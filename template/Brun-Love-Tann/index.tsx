@@ -18,24 +18,18 @@ export default function BrunLoveTannTemplate() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-    setIsMenuOpen(false); // 메뉴 클릭 시 닫기
+    setIsMenuOpen(false);
   };
 
   useEffect(() => {
-    document.documentElement.style.setProperty('--pick-bg', config.colors.background);
-    document.documentElement.style.setProperty('--pick-primary', config.colors.primary);
-    document.title = "BRUN LØVE TANN | The Rebirth";
+    document.title = "NOCTURNE & CO. | A Symphony of Shadows";
   }, []);
 
   return (
-    <div className="pick-template-root relative w-full min-h-screen pt-12 flex overflow-x-hidden selection:bg-black selection:text-white pb-0 md:pb-0">
-      {/* 1. 상단 티커 (고정) */}
+    <div className="brun-template-root relative w-full min-h-screen pt-10 flex overflow-x-hidden selection:bg-[#c5a059] selection:text-black pb-0 md:pb-0">
       <Ticker />
-
-      {/* 2. 데스크탑 전용 사이드바 (lg 이상) */}
       <Sidebar scrollToSection={scrollToSection} />
 
-      {/* 3. 모바일 전용 메뉴 드로어 (AnimatePresence) */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -43,11 +37,11 @@ export default function BrunLoveTannTemplate() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[300] bg-[#f3e9dc] p-10 flex flex-col justify-center items-center lg:hidden"
+            className="fixed inset-0 z-[300] bg-black p-10 flex flex-col justify-center items-center lg:hidden"
           >
             <button 
               onClick={() => setIsMenuOpen(false)}
-              className="absolute top-10 right-10 w-16 h-16 pick-grid-border rounded-full flex items-center justify-center bg-black text-white"
+              className="absolute top-10 right-10 w-16 h-16 border border-[#c5a059] rounded-full flex items-center justify-center bg-transparent text-[#c5a059]"
             >
               <X size={32} />
             </button>
@@ -56,74 +50,61 @@ export default function BrunLoveTannTemplate() {
                 <button
                   key={i}
                   onClick={() => scrollToSection(link.href.replace('#', ''))}
-                  className="pick-text-header text-[12vw] tracking-tighter hover:text-[#be3127] transition-colors"
+                  className="brun-text-header text-[12vw] tracking-widest text-[#e0d8c3] hover:text-[#c5a059] transition-colors bg-transparent border-none"
                 >
                   {link.label}
                 </button>
               ))}
             </nav>
-            <div className="absolute bottom-10 text-[10px] font-black tracking-[0.5em] opacity-30 uppercase">
-              Brun Løve Tann — Chapter 2
+            <div className="absolute bottom-10 text-[10px] font-black tracking-[0.5em] opacity-30 uppercase text-[#c5a059]">
+              A Symphony of Shadows
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* 4. 메인 콘텐츠 (스크롤 가능) - 여백 정밀 조정 */}
-      <main className="flex-1 lg:pl-[390px] w-full min-h-screen flex flex-col pick-border-l bg-white/20">
+      <main className="flex-1 lg:pl-[350px] w-full min-h-screen flex flex-col border-l border-[#c5a059]/20 bg-[#0a0a0a]">
         <section id="home"><Home /></section>
-        
-        <div className="w-full h-[1.5px] bg-black"></div>
-        <section id="story"><Story /></section>
-        
-        <div className="w-full h-[1.5px] bg-black"></div>
         <section id="products"><Products /></section>
-        
-        <div className="w-full h-[1.5px] bg-black"></div>
+        <section id="story"><Story /></section>
         <section id="contact"><Contact /></section>
 
-        {/* Footer - v6.2.7 Ultimate Contrast */}
-        <footer className="w-full bg-[#1a1a1a] text-white py-48 lg:py-64 px-12 md:px-24">
-          <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row justify-between gap-48 lg:gap-64">
+        <footer className="w-full bg-black text-[#e0d8c3] py-24 lg:py-32 px-12 md:px-24 pb-32 md:pb-64 border-t border-[#c5a059]/20">
+          <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row justify-between gap-24 lg:gap-64">
             <div className="lg:w-1/2">
-              <h2 className="pick-text-header text-[15vw] lg:text-[10vw] leading-[0.7] mb-12 text-white" style={{ fontFamily: config.fonts.heading }}>
-                BRUN<br/>LØVE<br/>TANN.
+              <h2 className="brun-text-header text-[10vw] lg:text-[6vw] leading-[1] mb-12 text-[#c5a059]">
+                NOCTURNE<br/>&amp; CO.
               </h2>
-              <div className="w-24 h-[2px] bg-[#be3127] mt-8"></div>
+              <div className="w-24 h-[1px] bg-[#c5a059] mt-8"></div>
             </div>
             
             <div className="lg:w-1/2 grid grid-cols-2 md:grid-cols-3 gap-16 md:gap-24">
               <div className="flex flex-col gap-8">
-                <span className="text-[10px] font-black tracking-widest opacity-60 uppercase border-b border-white/20 pb-4 text-white">Discovery</span>
+                <span className="brun-text-header text-[12px] tracking-widest opacity-60 uppercase border-b border-[#c5a059]/20 pb-4 text-[#c5a059]">Discovery</span>
                 {config.navLinks.map((l, i) => (
-                  <button key={i} className="text-left text-sm hover:text-[#be3127] transition-all uppercase font-black tracking-tighter text-white/90 hover:text-white">{l.label}</button>
+                  <button key={i} className="text-left text-sm hover:text-[#c5a059] transition-all uppercase tracking-widest text-[#e0d8c3] bg-transparent border-none">{l.label}</button>
                 ))}
               </div>
               <div className="flex flex-col gap-8">
-                <span className="text-[10px] font-black tracking-widest opacity-60 uppercase border-b border-white/20 pb-4 text-white">Social Library</span>
+                <span className="brun-text-header text-[12px] tracking-widest opacity-60 uppercase border-b border-[#c5a059]/20 pb-4 text-[#c5a059]">Social</span>
                 <div className="flex flex-col gap-4">
                   {['Instagram', 'Youtube', 'Pinterest'].map((s) => (
-                    <a key={s} href="#" className="text-sm font-black border-b border-white/10 hover:border-[#be3127] hover:text-[#be3127] transition-all pb-1 w-fit text-white/80 hover:text-white">{s}</a>
+                    <a key={s} href="#" className="text-sm tracking-widest border-b border-transparent hover:border-[#c5a059] hover:text-[#c5a059] transition-all pb-1 w-fit text-[#e0d8c3] no-underline uppercase">{s}</a>
                   ))}
                 </div>
               </div>
             </div>
           </div>
-          <div className="mt-64 pt-16 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
-            <p className="text-[10px] opacity-40 font-black uppercase tracking-[0.5em] font-mono text-white">© 2026 BRUN LØVE TANN — CREATED BY WEWEB SYSTEM.</p>
-            <div className="flex gap-12 opacity-60 text-[9px] font-black uppercase tracking-widest text-white">
-               <span>Terms</span>
-               <span>Privacy</span>
-            </div>
+          <div className="mt-32 pt-16 border-t border-[#c5a059]/20 flex flex-col md:flex-row justify-between items-center gap-8">
+            <p className="text-[10px] opacity-40 uppercase tracking-[0.5em] font-mono text-[#c5a059]">© 2026 NOCTURNE & CO — A SYMPHONY OF SHADOWS.</p>
           </div>
         </footer>
       </main>
 
-      {/* 5. 모바일 메뉴 트리거 */}
       {!isMenuOpen && (
         <button 
           onClick={() => setIsMenuOpen(true)}
-          className="lg:hidden fixed bottom-10 right-10 w-16 h-16 bg-black text-white rounded-full flex items-center justify-center z-[250] shadow-2xl active:scale-95 transition-transform"
+          className="lg:hidden fixed bottom-10 right-10 w-16 h-16 bg-black text-[#c5a059] rounded-full flex items-center justify-center z-[250] shadow-2xl active:scale-95 transition-transform border border-[#c5a059]"
         >
           <Menu size={28} />
         </button>

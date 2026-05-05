@@ -6,11 +6,7 @@ import path from 'path'
 export default defineConfig(({ command }) => ({
   plugins: [react()],
   base: command === 'build' ? '/WeWeb/' : '/',
-  oxc: {
-    tsconfig: {
-      configFile: path.resolve(__dirname, './tsconfig.app.json')
-    }
-  },
+
   resolve: {
     alias: {
       '@packages/ui': path.resolve(__dirname, '../Monorepo/packages/ui/src'),

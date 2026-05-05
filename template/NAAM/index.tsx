@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { cn } from '@framework/utils';
 import theme from './theme-config.json';
 import './GlobalStyles.css';
 
@@ -86,7 +87,7 @@ export default function NaamTemplate() {
           </AnimatePresence>
         </main>
 
-        <footer className="bg-[#2D232E] text-white py-20 px-6 md:px-16 mt-32">
+        <footer className="bg-[#2D232E] text-white py-20 px-6 md:px-16 mt-32 pb-32 md:pb-20">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
             <div className="col-span-1 md:col-span-2">
               <h2 className="naam-heading text-4xl mb-6">NAAM.</h2>
@@ -98,9 +99,9 @@ export default function NaamTemplate() {
             <div>
               <h4 className="font-bold mb-6">Explore</h4>
               <ul className="space-y-4 text-gray-400 text-sm">
-                <li><button onClick={() => setCurrentPage('home')}>Home</button></li>
-                <li><button onClick={() => setCurrentPage('shop')}>Shop</button></li>
-                <li><button onClick={() => setCurrentPage('partners')}>Partners</button></li>
+                <li><button onClick={() => setCurrentPage('home')} className="bg-transparent border-none text-gray-400 cursor-pointer">Home</button></li>
+                <li><button onClick={() => setCurrentPage('shop')} className="bg-transparent border-none text-gray-400 cursor-pointer">Shop</button></li>
+                <li><button onClick={() => setCurrentPage('partners')} className="bg-transparent border-none text-gray-400 cursor-pointer">Partners</button></li>
               </ul>
             </div>
             <div>
@@ -117,6 +118,28 @@ export default function NaamTemplate() {
             <span>Design by WeWeb Studio</span>
           </div>
         </footer>
+
+        {/* Mobile App Navigation */}
+        <div className="md:hidden fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-lg border-t border-gray-100 px-8 py-3 flex justify-between items-center z-[2000] pb-safe">
+          {[
+            { label: 'HOME', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>, value: 'home' },
+            { label: 'SHOP', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>, value: 'shop' },
+            { label: 'PARTNER', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>, value: 'partners' },
+            { label: 'CART', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>, value: 'cart' }
+          ].map((nav) => (
+            <button 
+              key={nav.label} 
+              onClick={() => nav.value === 'cart' ? setIsCartOpen(true) : setCurrentPage(nav.value)}
+              className={cn(
+                "flex flex-col items-center gap-1 bg-transparent border-none cursor-pointer",
+                currentPage === nav.value ? "text-[#5E2D91]" : "text-gray-400"
+              )}
+            >
+              {nav.icon}
+              <span className="text-[9px] font-bold">{nav.label}</span>
+            </button>
+          ))}
+        </div>
       </div>
     </CartContext.Provider>
   );

@@ -30,7 +30,7 @@ export default function SectorNews() {
              >
                <div className="flex items-start justify-between mb-10">
                   <div className={`w-16 h-16 ${sector.color} rounded-2xl flex items-center justify-center`}>
-                    {React.cloneElement(sector.icon as React.ReactElement, { size: 32 })}
+                    {React.cloneElement(sector.icon as React.ReactElement<any>, { size: 32 })}
                   </div>
                   <div className="text-right">
                      <span className="text-[10px] font-black text-gray-300 uppercase tracking-widest">Available Items</span>
