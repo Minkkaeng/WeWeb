@@ -24,12 +24,12 @@
     /* Path Aliases */
     "paths": {
       "@/*": ["./src/*"],
-      "@packages/ui": ["../Monorepo/packages/ui/src"],
-      "@packages/ui/*": ["../Monorepo/packages/ui/src/*"],
-      "@packages/utils": ["../Monorepo/packages/utils/src"],
-      "@packages/utils/*": ["../Monorepo/packages/utils/src/*"],
-      "@framework/utils": ["../Monorepo/packages/utils/src"]
+      "@packages/ui": ["./Monorepo/packages/ui/src"],
+      "@packages/ui/*": ["./Monorepo/packages/ui/src/*"],
+      "@packages/utils": ["./Monorepo/packages/utils/src"],
+      "@packages/utils/*": ["./Monorepo/packages/utils/src/*"],
+      "@framework/utils": ["./Monorepo/packages/utils/src"]
     }
   },
-  "include": ["src", "template", "../Monorepo/packages/ui/src", "../Monorepo/packages/utils/src"]
+  "include": ["src", "template", "./Monorepo/packages/ui/src", "./Monorepo/packages/utils/src"]
 }
