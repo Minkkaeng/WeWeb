@@ -54,15 +54,21 @@ class FwProductCard extends HTMLElement {
     );
 
     // 카테고리 배지
+    const badgeHtml = showBadge
       ? `<div class="absolute top-5 left-5">
           <span class="px-4 py-1.5 bg-white/90 backdrop-blur-md shadow-sm rounded-full text-[10px] font-black uppercase tracking-widest border" style="color: var(--primary-color, #4f46e5); border-color: var(--primary-color, #4f46e5); opacity: 0.8;">${this._esc(category)}</span>
         </div>`
+      : '';
 
     // 퀵 뷰 버튼
+    const viewBtnHtml = hasQuickView
       ? `<button data-action="view" class="p-4 bg-white text-gray-900 rounded-2xl hover:text-white transition-all transform translate-y-4 group-hover:translate-y-0 duration-500 delay-75 shadow-xl" style="--hover-bg: var(--primary-color, #4f46e5);" onmouseover="this.style.backgroundColor='var(--primary-color, #4f46e5)'" onmouseout="this.style.backgroundColor='white'">${iconEye({ size: 22 })}</button>`
+      : '';
 
     // 퀵 추가 버튼
+    const addBtnHtml = hasQuickAdd
       ? `<button data-action="add" class="p-4 bg-white text-gray-900 rounded-2xl hover:text-white transition-all transform translate-y-4 group-hover:translate-y-0 duration-500 shadow-xl" style="--hover-bg: var(--primary-color, #4f46e5);" onmouseover="this.style.backgroundColor='var(--primary-color, #4f46e5)'" onmouseout="this.style.backgroundColor='white'">${iconPlus({ size: 22 })}</button>`
+      : '';
 
     // 설명 영역
     const descHtml = showDescription && description
