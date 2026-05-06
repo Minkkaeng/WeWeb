@@ -66,7 +66,13 @@ export default function FreshGroveTemplate() {
     <div 
       ref={layoutRef}
       className="relative w-full overflow-hidden selection:bg-[#8FA893] selection:text-white"
-      style={{ backgroundColor: config.colors.background, color: config.colors.text, fontFamily: config.fonts.body }}
+      style={{ 
+        backgroundColor: config.colors.background, 
+        color: config.colors.text, 
+        fontFamily: config.fonts.body,
+        // @ts-ignore
+        '--primary-color': config.colors.primary 
+      }}
     >
       {/* Global Header */}
       <header className={`fixed top-0 left-0 z-50 w-full px-6 md:px-12 py-6 flex justify-between items-center transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-xl shadow-sm border-b border-[#8f9b8a]/20 text-gray-900' : 'bg-transparent border-transparent text-white'}`}>
