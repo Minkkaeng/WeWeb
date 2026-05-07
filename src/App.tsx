@@ -1,26 +1,24 @@
-import { lazy, Suspense, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { Header } from './components/Header'
 import { Landing } from './pages/Landing'
 import { ThemeLibrary } from './pages/ThemeLibrary'
 import { ErrorBoundary } from './components/ErrorBoundary'
-
-// 템플릿 컴포넌트 지연 로딩(Lazy Loading) 설정
-const MinimalistStudioTemplate = lazy(() => import('../template/minimalist-studio/index'));
-const FreshGroveTemplate = lazy(() => import('../template/fresh-grove/index'));
-const WiseTemplate = lazy(() => import('../template/WISE/index'));
-const PickTemplate = lazy(() => import('../template/PICK/index'));
-const PickGallery = lazy(() => import('../template/PICK/Gallery'));
-const NaamTemplate = lazy(() => import('../template/NAAM/index'));
-const KNexusTemplate = lazy(() => import('../template/K-Nexus/index'));
-const EverGovBokjiTemplate = lazy(() => import('../template/Bokji/index'));
-const Kookmin25Template = lazy(() => import('../template/Kookmin25/index'));
-const GovNetworkTemplate = lazy(() => import('../template/Gov-Network/index'));
-const KareumTemplate = lazy(() => import('../template/Kareum/index'));
-const LeafLineTemplate = lazy(() => import('../template/Leaf-Line/index'));
-const AllPetTemplate = lazy(() => import('../template/ALLPET/index'));
-const GrandTasteTemplate = lazy(() => import('../template/Grand-Taste/index'));
-const BrunLoveTannTemplate = lazy(() => import('../template/Brun-Love-Tann/index'));
+import MinimalistStudioTemplate from '../template/minimalist-studio/index'
+import FreshGroveTemplate from '../template/fresh-grove/index'
+import WiseTemplate from '../template/WISE/index'
+import PickTemplate from '../template/PICK/index'
+import PickGallery from '../template/PICK/Gallery'
+import NaamTemplate from '../template/NAAM/index'
+import KNexusTemplate from '../template/K-Nexus/index'
+import EverGovBokjiTemplate from '../template/Bokji/index'
+import Kookmin25Template from '../template/Kookmin25/index'
+import GovNetworkTemplate from '../template/Gov-Network/index'
+import KareumTemplate from '../template/Kareum/index'
+import LeafLineTemplate from '../template/Leaf-Line/index'
+import AllPetTemplate from '../template/ALLPET/index'
+import GrandTasteTemplate from '../template/Grand-Taste/index'
+import BrunLoveTannTemplate from '../template/Brun-Love-Tann/index'
 
 function NotFound() {
 
@@ -58,34 +56,29 @@ function App() {
       <div className="relative selection:bg-blood-coral selection:text-white">
         {!isTemplateRoute && <Header />}
 
-        <Suspense fallback={
-          <div className="min-h-screen flex items-center justify-center bg-gray-50/50">
-            <div className="w-8 h-8 border-4 border-gray-200 border-t-blood-coral rounded-full animate-spin"></div>
-          </div>
-        }>
-          <Routes>
-            <Route path="/" element={<ThemeLibrary />} />
-            <Route path="/about" element={<Landing />} />
-            {/* 독립된 템플릿 전용 라우트 */}
-            <Route path="/template/minimalist-studio" element={<MinimalistStudioTemplate />} />
-            <Route path="/template/fresh-grove" element={<FreshGroveTemplate />} />
-            <Route path="/template/wise" element={<WiseTemplate />} />
-            <Route path="/template/pick" element={<PickTemplate />} />
-            <Route path="/template/pick/gallery" element={<PickGallery />} />
-            <Route path="/template/naam" element={<NaamTemplate />} />
-            <Route path="/template/knexus" element={<KNexusTemplate />} />
-            <Route path="/template/bokji" element={<EverGovBokjiTemplate />} />
-            <Route path="/template/kookmin25" element={<Kookmin25Template />} />
-            <Route path="/template/gov-network" element={<GovNetworkTemplate />} />
-            <Route path="/template/kareum" element={<KareumTemplate />} />
-            <Route path="/template/leaf-line" element={<LeafLineTemplate />} />
-            <Route path="/template/allpet/*" element={<AllPetTemplate />} />
-            <Route path="/template/grand-taste" element={<GrandTasteTemplate />} />
-            <Route path="/template/brun-love-tann" element={<BrunLoveTannTemplate />} />
+        <Routes>
+          <Route path="/" element={<ThemeLibrary />} />
+          <Route path="/about" element={<Landing />} />
+          {/* 독립된 템플릿 전용 라우트 */}
+          <Route path="/template/minimalist-studio" element={<MinimalistStudioTemplate />} />
+          <Route path="/template/fresh-grove" element={<FreshGroveTemplate />} />
+          <Route path="/template/wise" element={<WiseTemplate />} />
+          <Route path="/template/pick" element={<PickTemplate />} />
+          <Route path="/template/pick/gallery" element={<PickGallery />} />
+          <Route path="/template/naam" element={<NaamTemplate />} />
+          <Route path="/template/knexus" element={<KNexusTemplate />} />
+          <Route path="/template/bokji" element={<EverGovBokjiTemplate />} />
+          <Route path="/template/kookmin25" element={<Kookmin25Template />} />
+          <Route path="/template/gov-network" element={<GovNetworkTemplate />} />
+          <Route path="/template/kareum" element={<KareumTemplate />} />
+          <Route path="/template/leaf-line" element={<LeafLineTemplate />} />
+          <Route path="/template/allpet/*" element={<AllPetTemplate />} />
+          <Route path="/template/grand-taste" element={<GrandTasteTemplate />} />
+          <Route path="/template/brun-love-tann" element={<BrunLoveTannTemplate />} />
 
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
 
         {!isTemplateRoute && (
           <footer className="py-8 text-center text-sm text-gray-400 font-light border-t border-gray-100">

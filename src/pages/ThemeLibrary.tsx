@@ -15,15 +15,20 @@ import knexusActualImg from '../assets/images/knexus_actual.png';
 import knexusMobileActualImg from '../assets/images/knexus_mobile_actual.png';
 import kookmin25ActualImg from '../assets/images/kookmin25_actual.png';
 import kookmin25MobileActualImg from '../assets/images/kookmin25_mobile_actual.png';
-import bokjiActualImg from '../assets/images/evergov_desktop.png'; // Using the one I generated
-import evergovNetworkActualImg from '../assets/images/evergov_network.png';
-import kareumDesktopImg from '../assets/images/kareum/hero_main.png';
-import kareumMobileImg from '../assets/images/kareum/village_green.png';
+import bokjiActualImg from '../assets/images/bokji_actual.png';
+import bokjiMobileActualImg from '../assets/images/bokji_mobile_actual.png';
+import evergovNetworkActualImg from '../assets/images/evergov_network_actual.png';
+import evergovNetworkMobileActualImg from '../assets/images/evergov_network_mobile_actual.png';
+import kareumDesktopImg from '../assets/images/kareum_actual.png';
+import kareumMobileImg from '../assets/images/kareum_mobile_actual.png';
 import leafLineActualImg from '../assets/images/leaf_line_actual.png';
 import leafLineMobileActualImg from '../assets/images/leaf_line_mobile_actual.png';
 import allpetActualImg from '../assets/images/allpet_actual.png';
+import allpetMobileActualImg from '../assets/images/allpet_mobile_actual.png';
 import grandTasteActualImg from '../assets/images/grand_taste_actual.png';
+import grandTasteMobileActualImg from '../assets/images/grand_taste_mobile_actual.png';
 import brunLoveTannActualImg from '../assets/images/brun_love_tann_actual.png';
+import brunLoveTannMobileActualImg from '../assets/images/brun_love_tann_mobile_actual.png';
 
 
 
@@ -31,7 +36,6 @@ import brunLoveTannActualImg from '../assets/images/brun_love_tann_actual.png';
 const categories = ['ALL', '쇼핑몰', '기업 브랜드', '관공서', '포털사이트', '기타'];
 
 const themeLibraryData = [
-  // 이미지가 있는 주요 템플릿 4개 (첫 번째 줄)
   { id: 1, title: 'FRESH GROVE', category: '쇼핑몰', imgColor: 'bg-emerald-50', desktopThumbnail: freshActualImg, mobileThumbnail: freshMobileActualImg },
   { id: 2, title: 'WISE', category: '쇼핑몰', imgColor: 'bg-black', desktopThumbnail: wiseActualImg, mobileThumbnail: wiseMobileActualImg },
   { id: 3, title: 'PICK', category: '쇼핑몰', imgColor: 'bg-[#f3e9dc]', desktopThumbnail: pickActualImg, mobileThumbnail: pickMobileActualImg },
@@ -39,19 +43,16 @@ const themeLibraryData = [
   { id: 5, title: 'NAAM', category: '쇼핑몰', imgColor: 'bg-[#FDF6E3]', desktopThumbnail: naamActualImg, mobileThumbnail: naamMobileActualImg },
   { id: 6, title: 'K-Nexus', category: '포털사이트', imgColor: 'bg-white', desktopThumbnail: knexusActualImg, mobileThumbnail: knexusMobileActualImg },
   { id: 7, title: '국민25시', category: '관공서', imgColor: 'bg-[#002758]', desktopThumbnail: kookmin25ActualImg, mobileThumbnail: kookmin25MobileActualImg },
-  { id: 8, title: 'Bokji', category: '관공서', imgColor: 'bg-white', desktopThumbnail: bokjiActualImg, mobileThumbnail: bokjiActualImg },
-  { id: 9, title: 'Gov-Network', category: '관공서', imgColor: 'bg-[#F8FAFC]', desktopThumbnail: evergovNetworkActualImg, mobileThumbnail: evergovNetworkActualImg },
+  { id: 8, title: 'Bokji', category: '관공서', imgColor: 'bg-white', desktopThumbnail: bokjiActualImg, mobileThumbnail: bokjiMobileActualImg },
+  { id: 9, title: 'Gov-Network', category: '관공서', imgColor: 'bg-[#F8FAFC]', desktopThumbnail: evergovNetworkActualImg, mobileThumbnail: evergovNetworkMobileActualImg },
   { id: 10, title: 'KAREUM', category: '관공서', imgColor: 'bg-[#FAFAFA]', desktopThumbnail: kareumDesktopImg, mobileThumbnail: kareumMobileImg },
   { id: 11, title: 'LEAF & LINE', category: '쇼핑몰', imgColor: 'bg-white', desktopThumbnail: leafLineActualImg, mobileThumbnail: leafLineMobileActualImg },
-  { id: 12, title: 'ALLPET', category: '포털사이트', imgColor: 'bg-white', desktopThumbnail: allpetActualImg, mobileThumbnail: '' },
-  { id: 13, title: 'Grand-Taste', category: '쇼핑몰', imgColor: 'bg-black', desktopThumbnail: grandTasteActualImg, mobileThumbnail: '' },
-  { id: 14, title: 'Brun-Love-Tann', category: '쇼핑몰', imgColor: 'bg-stone-900', desktopThumbnail: brunLoveTannActualImg, mobileThumbnail: '' },
+  { id: 12, title: 'ALLPET', category: '포털사이트', imgColor: 'bg-white', desktopThumbnail: allpetActualImg, mobileThumbnail: allpetMobileActualImg },
+  { id: 13, title: 'Grand-Taste', category: '쇼핑몰', imgColor: 'bg-black', desktopThumbnail: grandTasteActualImg, mobileThumbnail: grandTasteMobileActualImg },
+  { id: 14, title: 'Brun-Love-Tann', category: '쇼핑몰', imgColor: 'bg-stone-900', desktopThumbnail: brunLoveTannActualImg, mobileThumbnail: brunLoveTannMobileActualImg },
 
-  
-  // 11번부터 40번까지 모두 빈 템플릿 (Coming Soon)으로 통일
   ...Array.from({ length: 26 }, (_, i) => ({
     id: i + 15,
-
     title: `Coming Soon ${i + 1}`,
     category: '기타',
     imgColor: 'bg-gray-50',
