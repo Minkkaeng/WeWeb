@@ -168,10 +168,15 @@ const ArchivTemplate = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         {[1, 2, 3, 4, 5, 6].map((i) => (
           <div key={i} className="group cursor-pointer" onClick={() => window.location.href = '/template/archiv/detail'}>
-            <div className="aspect-[4/3] bg-black/5 rounded-[2.5rem] overflow-hidden mb-8">
-              <img src={journalImg} className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 transition-all duration-700" />
+            <div className="aspect-[4/3] bg-black/5 rounded-[2.5rem] overflow-hidden mb-8 relative">
+              <img 
+                src={`https://images.unsplash.com/photo-${1500000000000 + i * 100000}?auto=format&fit=crop&q=80&w=800`} 
+                className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-110 group-hover:opacity-100 transition-all duration-1000" 
+                alt={`Work ${i}`}
+              />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
             </div>
-            <h3 className="text-2xl font-serif-kr font-bold mb-4">Philosophy Artifact {i}</h3>
+            <h3 className="text-2xl font-serif-kr font-bold mb-4">Insight Artifact {i}</h3>
             <p className="text-xs opacity-30 uppercase tracking-widest font-bold">10 min read · 1.2k reads</p>
           </div>
         ))}

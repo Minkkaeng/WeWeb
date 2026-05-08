@@ -8,17 +8,25 @@ export const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // HashRouter에서 앵커 스크롤 처리
+  // 섹션 스크롤 처리 (메인 페이지로 이동 후 스크롤)
   const scrollToSection = (sectionId: string) => {
     setIsMobileMenuOpen(false);
-    if (location.pathname !== '/about') {
-      navigate('/about');
-      // 페이지 전환 후 스크롤
+    
+    if (location.pathname !== '/') {
+      // 메인 페이지가 아닐 경우 메인으로 이동 후 스크롤
+      navigate('/');
       setTimeout(() => {
-        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
       }, 100);
     } else {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      // 메인 페이지일 경우 바로 스크롤
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -37,7 +45,18 @@ export const Header = () => {
         {/* 데스크톱 네비게이션 */}
         <div className="hidden md:flex items-center gap-8">
           <nav className="flex gap-8 text-sm font-medium text-gray-600">
-            <Link to="/" className="text-blood-coral font-bold hover:-translate-y-0.5 transition-all">Library</Link>
+            <Link 
+              to="/" 
+              className={`hover:text-blood-coral transition-all ${location.pathname === '/' ? 'text-blood-coral font-bold' : ''}`}
+            >
+              Home
+            </Link>
+            <Link 
+              to="/library" 
+              className={`hover:text-blood-coral transition-all ${location.pathname === '/library' ? 'text-blood-coral font-bold' : ''}`}
+            >
+              Library
+            </Link>
             <button onClick={() => scrollToSection('work')} className="hover:text-blood-coral transition-all">Work</button>
             <button onClick={() => scrollToSection('about')} className="hover:text-blood-coral transition-all">About</button>
             <button onClick={() => scrollToSection('contact')} className="hover:text-blood-coral transition-all">Contact</button>
@@ -66,7 +85,8 @@ export const Header = () => {
             className="md:hidden overflow-hidden bg-white/95 backdrop-blur-md border-t border-gray-100"
           >
             <div className="flex flex-col px-6 py-4 gap-4 text-sm font-medium text-gray-600">
-              <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="py-2 text-blood-coral font-bold transition-all">Library</Link>
+              <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className={`py-2 ${location.pathname === '/' ? 'text-blood-coral font-bold' : ''}`}>Home</Link>
+              <Link to="/library" onClick={() => setIsMobileMenuOpen(false)} className={`py-2 ${location.pathname === '/library' ? 'text-blood-coral font-bold' : ''}`}>Library</Link>
               <button onClick={() => { setIsMobileMenuOpen(false); scrollToSection('work'); }} className="py-2 text-left hover:text-blood-coral transition-all">Work</button>
               <button onClick={() => { setIsMobileMenuOpen(false); scrollToSection('about'); }} className="py-2 text-left hover:text-blood-coral transition-all">About</button>
               <button onClick={() => { setIsMobileMenuOpen(false); scrollToSection('contact'); }} className="py-2 text-left hover:text-blood-coral transition-all">Contact</button>

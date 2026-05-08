@@ -95,26 +95,32 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
               <div className="flex-1 bg-gray-50 flex flex-col items-center overflow-y-auto no-scrollbar relative">
                 {(() => {
                   const previewMap: Record<string, string> = {
+                    'MINIMALIST-STUDIO': '/template/minimalist-studio',
                     'MINIMAL': '/template/minimalist-studio',
+                    'FRESH-GROVE': '/template/fresh-grove',
                     'FRESH GROVE': '/template/fresh-grove',
                     'WISE': '/template/wise',
-                    'PICK': '/template/pick',
+                    'PICK': '/template/brun-love-tann',
                     'NAAM': '/template/naam',
                     'BOKJI': '/template/bokji',
                     '국민25시': '/template/kookmin25',
+                    'KOOKMIN25': '/template/kookmin25',
                     'GOV-NETWORK': '/template/gov-network',
+                    'EVERGOV-NETWORK': '/template/gov-network',
                     'KAREUM': '/template/kareum',
                     'LEAF & LINE': '/template/leaf-line',
+                    'LEAF-LINE': '/template/leaf-line',
                     'ALLPET': '/template/allpet',
                     'GRAND-TASTE': '/template/grand-taste',
                     'BRUN-LOVE-TANN': '/template/brun-love-tann',
+                    'BRUNLØVETANN': '/template/brun-love-tann',
+                    'BRUN LØVETANN': '/template/brun-love-tann',
                     'K-NEXUS': '/template/knexus',
                     'LUVID': '/template/luvid',
                     'VELOCE': '/template/veloce',
                     'ARCHIV': '/template/archiv'
-
-
                   };
+
                   const normalizedTitle = themeTitle.toUpperCase();
                   const previewUrl = previewMap[normalizedTitle];
 

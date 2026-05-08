@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemePreviewModal } from "../components/ThemePreviewModal";
+
+// Assets - Import aliases are consistent with filenames
 import freshActualImg from "../assets/images/fresh_grove_actual.png";
 import freshMobileActualImg from "../assets/images/fresh_grove_mobile_actual.png";
 import wiseActualImg from "../assets/images/wise_actual.png";
@@ -81,31 +83,31 @@ const themeLibraryData = [
   },
   {
     id: 6,
-    title: "K-Nexus",
-    category: "포털사이트",
-    imgColor: "bg-white",
+    title: "K-NEXUS",
+    category: "기업 브랜드",
+    imgColor: "bg-[#0A0A0A]",
     desktopThumbnail: knexusActualImg,
     mobileThumbnail: knexusMobileActualImg,
   },
   {
     id: 7,
-    title: "국민25시",
-    category: "관공서",
-    imgColor: "bg-[#002758]",
+    title: "KOOKMIN25",
+    category: "기타",
+    imgColor: "bg-white",
     desktopThumbnail: kookmin25ActualImg,
     mobileThumbnail: kookmin25MobileActualImg,
   },
   {
     id: 8,
-    title: "Bokji",
+    title: "BOKJI",
     category: "관공서",
-    imgColor: "bg-white",
+    imgColor: "bg-[#EEF2FF]",
     desktopThumbnail: bokjiActualImg,
     mobileThumbnail: bokjiMobileActualImg,
   },
   {
     id: 9,
-    title: "Gov-Network",
+    title: "EVERGOV-NETWORK",
     category: "관공서",
     imgColor: "bg-[#F8FAFC]",
     desktopThumbnail: evergovNetworkActualImg,
@@ -137,19 +139,11 @@ const themeLibraryData = [
   },
   {
     id: 13,
-    title: "Grand-Taste",
+    title: "GRAND-TASTE",
     category: "쇼핑몰",
     imgColor: "bg-black",
     desktopThumbnail: grandTasteActualImg,
     mobileThumbnail: grandTasteMobileActualImg,
-  },
-  {
-    id: 14,
-    title: "Brun-Love-Tann",
-    category: "쇼핑몰",
-    imgColor: "bg-stone-900",
-    desktopThumbnail: brunLoveTannActualImg,
-    mobileThumbnail: brunLoveTannMobileActualImg,
   },
   {
     id: 15,
@@ -170,146 +164,102 @@ const themeLibraryData = [
   {
     id: 17,
     title: "ARCHIV",
-    category: "기타",
+    category: "포털사이트",
     imgColor: "bg-[#F8F7FF]",
     desktopThumbnail: archivActualImg,
     mobileThumbnail: archivMobileActualImg,
-  },
-
-  ...Array.from({ length: 23 }, (_, i) => ({
-    id: i + 18,
-    title: `Coming Soon ${i + 1}`,
-    category: "기타",
-    imgColor: "bg-gray-50",
-    desktopThumbnail: "",
-    mobileThumbnail: "",
-  })),
+  }
 ];
 
 export const ThemeLibrary = () => {
-  const [activeCategory, setActiveCategory] = useState("ALL");
-  const [selectedTheme, setSelectedTheme] = useState<{ title: string; category: string } | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState("ALL");
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [activeTheme, setActiveTheme] = useState<any>(null);
 
-  const filteredThemes =
-    activeCategory === "ALL" ? themeLibraryData : themeLibraryData.filter((t) => t.category === activeCategory);
+  const filteredThemes = themeLibraryData.filter((theme) => {
+    if (selectedCategory === "ALL") return true;
+    return theme.category === selectedCategory;
+  });
 
-  const handleThemeClick = (title: string, category: string) => {
-    setSelectedTheme({ title, category });
+  const openPreview = (theme: any) => {
+    setActiveTheme(theme);
+    setIsPreviewOpen(true);
   };
 
   return (
-    <div className="min-h-screen bg-white pt-24 pb-32">
+    <div className="min-h-screen bg-white pt-24 pb-20">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
-        <div className="mb-12 text-center md:text-left">
-          <h1 className="text-4xl font-bold text-deep-black mb-4">테마 라이브러리</h1>
-          <p className="text-gray-500 font-light text-lg">
-            당신의 비즈니스를 가장 돋보이게 할 WEWEB만의 감각적인 레퍼런스
+        <div className="mb-16">
+          <h1 className="text-4xl font-bold text-deep-black mb-4 tracking-tighter">Theme Library</h1>
+          <p className="text-gray-500 font-light max-w-2xl">
+            다양한 산업군에 최적화된 고품질 웹 템플릿을 경험해 보세요. <br/>
+            모든 템플릿은 반응형 디자인과 최적화된 UX를 제공합니다.
           </p>
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap items-center gap-2 mb-12 border-b border-gray-100 pb-4">
-          {categories.map((cat) => (
+        <div className="flex flex-wrap gap-3 mb-12">
+          {categories.map((category) => (
             <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
-                activeCategory === cat
-                  ? "bg-deep-black text-white"
-                  : "bg-gray-50 text-gray-500 hover:bg-gray-100 hover:text-deep-black"
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-6 py-2.5 rounded-full text-xs font-semibold tracking-widest transition-all ${
+                selectedCategory === category
+                  ? "bg-blood-coral text-white shadow-lg shadow-blood-coral/20"
+                  : "bg-gray-50 text-gray-400 hover:bg-gray-100"
               }`}
             >
-              {cat}
+              {category}
             </button>
           ))}
         </div>
 
-        {/* 4-Column Uniform Grid */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeCategory}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
-          >
-            {filteredThemes.map((theme, index) => (
+        {/* Theme Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AnimatePresence mode="popLayout">
+            {filteredThemes.map((theme) => (
               <motion.div
+                layout
                 key={theme.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                role="button"
-                tabIndex={0}
-                onClick={() => handleThemeClick(theme.title, theme.category)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    handleThemeClick(theme.title, theme.category);
-                  }
-                }}
-                className="group cursor-pointer flex flex-col outline-none focus-visible:ring-2 focus-visible:ring-blood-coral rounded-2xl"
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+                className="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-2xl hover:shadow-gray-200/50 transition-all duration-700 cursor-pointer"
+                onClick={() => openPreview(theme)}
               >
-                {/* Card Image Area */}
-                <div className="relative w-full aspect-[16/10] bg-gray-100 border border-gray-100 rounded-2xl overflow-hidden mb-4 shadow-sm group-hover:shadow-xl transition-shadow duration-500">
-                  {/* Template Full Cover */}
-                  {theme.desktopThumbnail ? (
-                    <img
-                      src={theme.desktopThumbnail}
-                      alt={`${theme.title} Preview`}
-                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center bg-gray-50 text-gray-400">
-                      <span className="font-bold font-sans text-xs tracking-wider">PREVIEW</span>
-                      <span className="font-sans text-[10px] mt-1 opacity-60">Not Available</span>
-                    </div>
-                  )}
-
-                  {/* Mobile Mockup Reveal */}
-                  <div className="absolute -bottom-8 -right-8 w-32 h-56 bg-white rounded-[24px] shadow-2xl translate-y-12 rotate-12 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:-rotate-3 transition-all duration-500 ease-out z-10 hidden sm:flex flex-col items-center overflow-hidden">
-                    <div className="w-12 h-1 bg-gray-300 absolute top-2 rounded-full z-20"></div>
-                    {theme.mobileThumbnail ? (
-                      <img
-                        src={theme.mobileThumbnail}
-                        alt="Mobile Preview"
-                        className="w-full h-full object-cover object-top"
-                      />
-                    ) : (
-                      <span className="text-gray-400 text-[10px] font-bold mt-auto mb-auto">MOBILE</span>
-                    )}
-                  </div>
-
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="px-6 py-3 bg-white/95 text-deep-black text-sm font-semibold rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 backdrop-blur-sm relative z-20">
-                      미리보기
+                <div className={`aspect-[16/10] overflow-hidden relative ${theme.imgColor}`}>
+                  <img
+                    src={theme.desktopThumbnail}
+                    alt={theme.title}
+                    className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500" />
+                </div>
+                <div className="p-8">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[10px] font-bold text-blood-coral tracking-widest uppercase">
+                      {theme.category}
                     </span>
                   </div>
-                </div>
-
-                {/* Card Info */}
-                <div className="flex flex-col gap-1 px-2">
-                  <span className="text-xs text-blood-coral font-semibold tracking-wider uppercase">
-                    {theme.category}
-                  </span>
-                  <h3 className="text-lg font-bold text-deep-black">{theme.title}</h3>
+                  <h3 className="text-xl font-bold text-deep-black tracking-tight group-hover:text-blood-coral transition-colors">
+                    {theme.title}
+                  </h3>
                 </div>
               </motion.div>
             ))}
-          </motion.div>
-        </AnimatePresence>
+          </AnimatePresence>
+        </div>
       </div>
 
-      {/* Fullscreen Preview Modal */}
-      <ThemePreviewModal
-        isOpen={selectedTheme !== null}
-        onClose={() => setSelectedTheme(null)}
-        themeTitle={selectedTheme?.title || ""}
-        themeCategory={selectedTheme?.category || ""}
-      />
+      {activeTheme && (
+        <ThemePreviewModal
+          isOpen={isPreviewOpen}
+          onClose={() => setIsPreviewOpen(false)}
+          themeTitle={activeTheme.title}
+          themeCategory={activeTheme.category}
+        />
+      )}
     </div>
   );
 };

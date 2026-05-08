@@ -1,6 +1,5 @@
 {
-  "name": "Brun-Love-Tann",
-  "displayName": "BRUN LØVE TANN",
+  "name": "PICK 2.0",
   "version": "4.1.0",
   "colors": {
     "background": "#f3e9dc",
@@ -21,7 +20,7 @@
     "radius": "40px",
     "grain": true
   },
-  "ticker": { "text": "BRUN LØVE TANN — CHAPTER 2: THE REBIRTH" },
+  "ticker": { "text": "BRUNLØVETANN — CHAPTER 2: THE REBIRTH" },
   "navLinks": [
     { "label": "THE VISION", "href": "#home" },
     { "label": "COLLECTION", "href": "#products" },
