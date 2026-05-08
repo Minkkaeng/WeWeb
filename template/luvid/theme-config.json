@@ -1,0 +1,22 @@
+{
+  "themeName": "Luvid",
+  "category": "기업 브랜드",
+  "colors": {
+    "primary": "#8E7355",
+    "background": "#FDFCFB",
+    "text": "#2D2926",
+    "accent": "#C4A484",
+    "softBeige": "#F5F1ED",
+    "earthyBrown": "#5D4D3D"
+  },
+  "fonts": {
+    "heading": "'Outfit', 'Noto Serif KR', serif",
+    "body": "'Inter', 'Pretendard', sans-serif"
+  },
+  "navLinks": [
+    { "label": "Story", "href": "#story" },
+    { "label": "Collection", "href": "#collection" },
+    { "label": "Detail", "href": "#detail" },
+    { "label": "Contact", "href": "#contact" }
+  ]
+}

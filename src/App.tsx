@@ -19,6 +19,12 @@ import LeafLineTemplate from '../template/Leaf-Line/index'
 import AllPetTemplate from '../template/ALLPET/index'
 import GrandTasteTemplate from '../template/Grand-Taste/index'
 import BrunLoveTannTemplate from '../template/Brun-Love-Tann/index'
+import LuvidTemplate from '../template/luvid/index'
+import VeloceTemplate from '../template/veloce/index'
+import ArchivTemplate from '../template/archiv/index'
+import DetailPage from '../template/archiv/DetailPage'
+
+
 
 function NotFound() {
 
@@ -75,6 +81,13 @@ function App() {
           <Route path="/template/allpet/*" element={<AllPetTemplate />} />
           <Route path="/template/grand-taste" element={<GrandTasteTemplate />} />
           <Route path="/template/brun-love-tann" element={<BrunLoveTannTemplate />} />
+          <Route path="/template/luvid" element={<LuvidTemplate />} />
+          <Route path="/template/veloce" element={<VeloceTemplate />} />
+          <Route path="/template/archiv" element={<ArchivTemplate />} />
+          <Route path="/template/archiv/detail" element={<DetailPage />} />
+
+
+
 
 
           <Route path="*" element={<NotFound />} />

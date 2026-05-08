@@ -1,73 +1,197 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ThemePreviewModal } from '../components/ThemePreviewModal';
-import freshActualImg from '../assets/images/fresh_grove_actual.png';
-import freshMobileActualImg from '../assets/images/fresh_grove_mobile_actual.png';
-import wiseActualImg from '../assets/images/wise_actual.png';
-import wiseMobileActualImg from '../assets/images/wise_mobile_actual.png';
-import pickActualImg from '../assets/images/pick_actual.png';
-import pickMobileActualImg from '../assets/images/pick_mobile_actual.png';
-import minimalActualImg from '../assets/images/minimalist_studio_actual.png';
-import minimalMobileActualImg from '../assets/images/minimalist_studio_mobile_actual.png';
-import naamActualImg from '../assets/images/naam_actual.png';
-import naamMobileActualImg from '../assets/images/naam_mobile_actual.png';
-import knexusActualImg from '../assets/images/knexus_actual.png';
-import knexusMobileActualImg from '../assets/images/knexus_mobile_actual.png';
-import kookmin25ActualImg from '../assets/images/kookmin25_actual.png';
-import kookmin25MobileActualImg from '../assets/images/kookmin25_mobile_actual.png';
-import bokjiActualImg from '../assets/images/bokji_actual.png';
-import bokjiMobileActualImg from '../assets/images/bokji_mobile_actual.png';
-import evergovNetworkActualImg from '../assets/images/evergov_network_actual.png';
-import evergovNetworkMobileActualImg from '../assets/images/evergov_network_mobile_actual.png';
-import kareumDesktopImg from '../assets/images/kareum_actual.png';
-import kareumMobileImg from '../assets/images/kareum_mobile_actual.png';
-import leafLineActualImg from '../assets/images/leaf_line_actual.png';
-import leafLineMobileActualImg from '../assets/images/leaf_line_mobile_actual.png';
-import allpetActualImg from '../assets/images/allpet_actual.png';
-import allpetMobileActualImg from '../assets/images/allpet_mobile_actual.png';
-import grandTasteActualImg from '../assets/images/grand_taste_actual.png';
-import grandTasteMobileActualImg from '../assets/images/grand_taste_mobile_actual.png';
-import brunLoveTannActualImg from '../assets/images/brun_love_tann_actual.png';
-import brunLoveTannMobileActualImg from '../assets/images/brun_love_tann_mobile_actual.png';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ThemePreviewModal } from "../components/ThemePreviewModal";
+import freshActualImg from "../assets/images/fresh_grove_actual.png";
+import freshMobileActualImg from "../assets/images/fresh_grove_mobile_actual.png";
+import wiseActualImg from "../assets/images/wise_actual.png";
+import wiseMobileActualImg from "../assets/images/wise_mobile_actual.png";
+import pickActualImg from "../assets/images/pick_actual.png";
+import pickMobileActualImg from "../assets/images/pick_mobile_actual.png";
+import minimalActualImg from "../assets/images/minimalist_studio_actual.png";
+import minimalMobileActualImg from "../assets/images/minimalist_studio_mobile_actual.png";
+import naamActualImg from "../assets/images/naam_actual.png";
+import naamMobileActualImg from "../assets/images/naam_mobile_actual.png";
+import knexusActualImg from "../assets/images/knexus_actual.png";
+import knexusMobileActualImg from "../assets/images/knexus_mobile_actual.png";
+import kookmin25ActualImg from "../assets/images/kookmin25_actual.png";
+import kookmin25MobileActualImg from "../assets/images/kookmin25_mobile_actual.png";
+import bokjiActualImg from "../assets/images/bokji_actual.png";
+import bokjiMobileActualImg from "../assets/images/bokji_mobile_actual.png";
+import evergovNetworkActualImg from "../assets/images/evergov_network_actual.png";
+import evergovNetworkMobileActualImg from "../assets/images/evergov_network_mobile_actual.png";
+import kareumDesktopImg from "../assets/images/kareum_actual.png";
+import kareumMobileImg from "../assets/images/kareum_mobile_actual.png";
+import leafLineActualImg from "../assets/images/leaf_line_actual.png";
+import leafLineMobileActualImg from "../assets/images/leaf_line_mobile_actual.png";
+import allpetActualImg from "../assets/images/allpet_actual.png";
+import allpetMobileActualImg from "../assets/images/allpet_mobile_actual.png";
+import grandTasteActualImg from "../assets/images/grand_taste_actual.png";
+import grandTasteMobileActualImg from "../assets/images/grand_taste_mobile_actual.png";
+import brunLoveTannActualImg from "../assets/images/brun_love_tann_actual.png";
+import brunLoveTannMobileActualImg from "../assets/images/brun_love_tann_mobile_actual.png";
+import luvidActualImg from "../assets/images/luvid_actual.png";
+import luvidMobileActualImg from "../assets/images/luvid_mobile_actual.png";
+import veloceActualImg from "../assets/images/veloce_actual.png";
+import veloceMobileActualImg from "../assets/images/veloce_mobile_actual.png";
+import archivActualImg from "../assets/images/archiv_actual.png";
+import archivMobileActualImg from "../assets/images/archiv_mobile_actual.png";
 
-
-
-
-const categories = ['ALL', '쇼핑몰', '기업 브랜드', '관공서', '포털사이트', '기타'];
+const categories = ["ALL", "쇼핑몰", "기업 브랜드", "관공서", "포털사이트", "기타"];
 
 const themeLibraryData = [
-  { id: 1, title: 'FRESH GROVE', category: '쇼핑몰', imgColor: 'bg-emerald-50', desktopThumbnail: freshActualImg, mobileThumbnail: freshMobileActualImg },
-  { id: 2, title: 'WISE', category: '쇼핑몰', imgColor: 'bg-black', desktopThumbnail: wiseActualImg, mobileThumbnail: wiseMobileActualImg },
-  { id: 3, title: 'PICK', category: '쇼핑몰', imgColor: 'bg-[#f3e9dc]', desktopThumbnail: pickActualImg, mobileThumbnail: pickMobileActualImg },
-  { id: 4, title: 'MINIMAL', category: '기업 브랜드', imgColor: 'bg-[#111111]', desktopThumbnail: minimalActualImg, mobileThumbnail: minimalMobileActualImg },
-  { id: 5, title: 'NAAM', category: '쇼핑몰', imgColor: 'bg-[#FDF6E3]', desktopThumbnail: naamActualImg, mobileThumbnail: naamMobileActualImg },
-  { id: 6, title: 'K-Nexus', category: '포털사이트', imgColor: 'bg-white', desktopThumbnail: knexusActualImg, mobileThumbnail: knexusMobileActualImg },
-  { id: 7, title: '국민25시', category: '관공서', imgColor: 'bg-[#002758]', desktopThumbnail: kookmin25ActualImg, mobileThumbnail: kookmin25MobileActualImg },
-  { id: 8, title: 'Bokji', category: '관공서', imgColor: 'bg-white', desktopThumbnail: bokjiActualImg, mobileThumbnail: bokjiMobileActualImg },
-  { id: 9, title: 'Gov-Network', category: '관공서', imgColor: 'bg-[#F8FAFC]', desktopThumbnail: evergovNetworkActualImg, mobileThumbnail: evergovNetworkMobileActualImg },
-  { id: 10, title: 'KAREUM', category: '관공서', imgColor: 'bg-[#FAFAFA]', desktopThumbnail: kareumDesktopImg, mobileThumbnail: kareumMobileImg },
-  { id: 11, title: 'LEAF & LINE', category: '쇼핑몰', imgColor: 'bg-white', desktopThumbnail: leafLineActualImg, mobileThumbnail: leafLineMobileActualImg },
-  { id: 12, title: 'ALLPET', category: '포털사이트', imgColor: 'bg-white', desktopThumbnail: allpetActualImg, mobileThumbnail: allpetMobileActualImg },
-  { id: 13, title: 'Grand-Taste', category: '쇼핑몰', imgColor: 'bg-black', desktopThumbnail: grandTasteActualImg, mobileThumbnail: grandTasteMobileActualImg },
-  { id: 14, title: 'Brun-Love-Tann', category: '쇼핑몰', imgColor: 'bg-stone-900', desktopThumbnail: brunLoveTannActualImg, mobileThumbnail: brunLoveTannMobileActualImg },
+  {
+    id: 1,
+    title: "FRESH GROVE",
+    category: "쇼핑몰",
+    imgColor: "bg-emerald-50",
+    desktopThumbnail: freshActualImg,
+    mobileThumbnail: freshMobileActualImg,
+  },
+  {
+    id: 2,
+    title: "WISE",
+    category: "쇼핑몰",
+    imgColor: "bg-black",
+    desktopThumbnail: wiseActualImg,
+    mobileThumbnail: wiseMobileActualImg,
+  },
+  {
+    id: 3,
+    title: "BRUNLØVETANN",
+    category: "쇼핑몰",
+    imgColor: "bg-[#f3e9dc]",
+    desktopThumbnail: pickActualImg,
+    mobileThumbnail: pickMobileActualImg,
+  },
+  {
+    id: 4,
+    title: "MINIMAL",
+    category: "기업 브랜드",
+    imgColor: "bg-[#111111]",
+    desktopThumbnail: minimalActualImg,
+    mobileThumbnail: minimalMobileActualImg,
+  },
+  {
+    id: 5,
+    title: "NAAM",
+    category: "쇼핑몰",
+    imgColor: "bg-[#FDF6E3]",
+    desktopThumbnail: naamActualImg,
+    mobileThumbnail: naamMobileActualImg,
+  },
+  {
+    id: 6,
+    title: "K-Nexus",
+    category: "포털사이트",
+    imgColor: "bg-white",
+    desktopThumbnail: knexusActualImg,
+    mobileThumbnail: knexusMobileActualImg,
+  },
+  {
+    id: 7,
+    title: "국민25시",
+    category: "관공서",
+    imgColor: "bg-[#002758]",
+    desktopThumbnail: kookmin25ActualImg,
+    mobileThumbnail: kookmin25MobileActualImg,
+  },
+  {
+    id: 8,
+    title: "Bokji",
+    category: "관공서",
+    imgColor: "bg-white",
+    desktopThumbnail: bokjiActualImg,
+    mobileThumbnail: bokjiMobileActualImg,
+  },
+  {
+    id: 9,
+    title: "Gov-Network",
+    category: "관공서",
+    imgColor: "bg-[#F8FAFC]",
+    desktopThumbnail: evergovNetworkActualImg,
+    mobileThumbnail: evergovNetworkMobileActualImg,
+  },
+  {
+    id: 10,
+    title: "KAREUM",
+    category: "관공서",
+    imgColor: "bg-[#FAFAFA]",
+    desktopThumbnail: kareumDesktopImg,
+    mobileThumbnail: kareumMobileImg,
+  },
+  {
+    id: 11,
+    title: "LEAF & LINE",
+    category: "쇼핑몰",
+    imgColor: "bg-white",
+    desktopThumbnail: leafLineActualImg,
+    mobileThumbnail: leafLineMobileActualImg,
+  },
+  {
+    id: 12,
+    title: "ALLPET",
+    category: "포털사이트",
+    imgColor: "bg-white",
+    desktopThumbnail: allpetActualImg,
+    mobileThumbnail: allpetMobileActualImg,
+  },
+  {
+    id: 13,
+    title: "Grand-Taste",
+    category: "쇼핑몰",
+    imgColor: "bg-black",
+    desktopThumbnail: grandTasteActualImg,
+    mobileThumbnail: grandTasteMobileActualImg,
+  },
+  {
+    id: 14,
+    title: "Brun-Love-Tann",
+    category: "쇼핑몰",
+    imgColor: "bg-stone-900",
+    desktopThumbnail: brunLoveTannActualImg,
+    mobileThumbnail: brunLoveTannMobileActualImg,
+  },
+  {
+    id: 15,
+    title: "LUVID",
+    category: "기업 브랜드",
+    imgColor: "bg-[#FDFCFB]",
+    desktopThumbnail: luvidActualImg,
+    mobileThumbnail: luvidMobileActualImg,
+  },
+  {
+    id: 16,
+    title: "VELOCE",
+    category: "기업 브랜드",
+    imgColor: "bg-[#F9F9F9]",
+    desktopThumbnail: veloceActualImg,
+    mobileThumbnail: veloceMobileActualImg,
+  },
+  {
+    id: 17,
+    title: "ARCHIV",
+    category: "기타",
+    imgColor: "bg-[#F8F7FF]",
+    desktopThumbnail: archivActualImg,
+    mobileThumbnail: archivMobileActualImg,
+  },
 
-  ...Array.from({ length: 26 }, (_, i) => ({
-    id: i + 15,
+  ...Array.from({ length: 23 }, (_, i) => ({
+    id: i + 18,
     title: `Coming Soon ${i + 1}`,
-    category: '기타',
-    imgColor: 'bg-gray-50',
-    desktopThumbnail: '',
-    mobileThumbnail: ''
-  }))
+    category: "기타",
+    imgColor: "bg-gray-50",
+    desktopThumbnail: "",
+    mobileThumbnail: "",
+  })),
 ];
 
 export const ThemeLibrary = () => {
-  const [activeCategory, setActiveCategory] = useState('ALL');
-  const [selectedTheme, setSelectedTheme] = useState<{title: string, category: string} | null>(null);
+  const [activeCategory, setActiveCategory] = useState("ALL");
+  const [selectedTheme, setSelectedTheme] = useState<{ title: string; category: string } | null>(null);
 
-  const filteredThemes = activeCategory === 'ALL'
-    ? themeLibraryData
-    : themeLibraryData.filter(t => t.category === activeCategory);
+  const filteredThemes =
+    activeCategory === "ALL" ? themeLibraryData : themeLibraryData.filter((t) => t.category === activeCategory);
 
   const handleThemeClick = (title: string, category: string) => {
     setSelectedTheme({ title, category });
@@ -76,23 +200,24 @@ export const ThemeLibrary = () => {
   return (
     <div className="min-h-screen bg-white pt-24 pb-32">
       <div className="max-w-7xl mx-auto px-6">
-
         {/* Header */}
         <div className="mb-12 text-center md:text-left">
           <h1 className="text-4xl font-bold text-deep-black mb-4">테마 라이브러리</h1>
-          <p className="text-gray-500 font-light text-lg">당신의 비즈니스를 가장 돋보이게 할 WEWEB만의 감각적인 레퍼런스</p>
+          <p className="text-gray-500 font-light text-lg">
+            당신의 비즈니스를 가장 돋보이게 할 WEWEB만의 감각적인 레퍼런스
+          </p>
         </div>
 
         {/* Category Filter */}
         <div className="flex flex-wrap items-center gap-2 mb-12 border-b border-gray-100 pb-4">
-          {categories.map(cat => (
+          {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
                 activeCategory === cat
-                  ? 'bg-deep-black text-white'
-                  : 'bg-gray-50 text-gray-500 hover:bg-gray-100 hover:text-deep-black'
+                  ? "bg-deep-black text-white"
+                  : "bg-gray-50 text-gray-500 hover:bg-gray-100 hover:text-deep-black"
               }`}
             >
               {cat}
@@ -120,7 +245,7 @@ export const ThemeLibrary = () => {
                 tabIndex={0}
                 onClick={() => handleThemeClick(theme.title, theme.category)}
                 onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
+                  if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
                     handleThemeClick(theme.title, theme.category);
                   }
@@ -131,7 +256,11 @@ export const ThemeLibrary = () => {
                 <div className="relative w-full aspect-[16/10] bg-gray-100 border border-gray-100 rounded-2xl overflow-hidden mb-4 shadow-sm group-hover:shadow-xl transition-shadow duration-500">
                   {/* Template Full Cover */}
                   {theme.desktopThumbnail ? (
-                    <img src={theme.desktopThumbnail} alt={`${theme.title} Preview`} className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+                    <img
+                      src={theme.desktopThumbnail}
+                      alt={`${theme.title} Preview`}
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    />
                   ) : (
                     <div className="w-full h-full flex flex-col items-center justify-center bg-gray-50 text-gray-400">
                       <span className="font-bold font-sans text-xs tracking-wider">PREVIEW</span>
@@ -143,23 +272,29 @@ export const ThemeLibrary = () => {
                   <div className="absolute -bottom-8 -right-8 w-32 h-56 bg-white rounded-[24px] shadow-2xl translate-y-12 rotate-12 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:-rotate-3 transition-all duration-500 ease-out z-10 hidden sm:flex flex-col items-center overflow-hidden">
                     <div className="w-12 h-1 bg-gray-300 absolute top-2 rounded-full z-20"></div>
                     {theme.mobileThumbnail ? (
-                       <img src={theme.mobileThumbnail} alt="Mobile Preview" className="w-full h-full object-cover object-top" />
+                      <img
+                        src={theme.mobileThumbnail}
+                        alt="Mobile Preview"
+                        className="w-full h-full object-cover object-top"
+                      />
                     ) : (
-                       <span className="text-gray-400 text-[10px] font-bold mt-auto mb-auto">MOBILE</span>
+                      <span className="text-gray-400 text-[10px] font-bold mt-auto mb-auto">MOBILE</span>
                     )}
                   </div>
 
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                     <span className="px-6 py-3 bg-white/95 text-deep-black text-sm font-semibold rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 backdrop-blur-sm relative z-20">
-                        미리보기
-                     </span>
+                    <span className="px-6 py-3 bg-white/95 text-deep-black text-sm font-semibold rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 backdrop-blur-sm relative z-20">
+                      미리보기
+                    </span>
                   </div>
                 </div>
 
                 {/* Card Info */}
                 <div className="flex flex-col gap-1 px-2">
-                  <span className="text-xs text-blood-coral font-semibold tracking-wider uppercase">{theme.category}</span>
+                  <span className="text-xs text-blood-coral font-semibold tracking-wider uppercase">
+                    {theme.category}
+                  </span>
                   <h3 className="text-lg font-bold text-deep-black">{theme.title}</h3>
                 </div>
               </motion.div>
@@ -172,8 +307,8 @@ export const ThemeLibrary = () => {
       <ThemePreviewModal
         isOpen={selectedTheme !== null}
         onClose={() => setSelectedTheme(null)}
-        themeTitle={selectedTheme?.title || ''}
-        themeCategory={selectedTheme?.category || ''}
+        themeTitle={selectedTheme?.title || ""}
+        themeCategory={selectedTheme?.category || ""}
       />
     </div>
   );

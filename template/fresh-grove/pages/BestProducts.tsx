@@ -2,10 +2,10 @@ import config from '../theme-config.json';
 import '@packages/ui/ProductCard';
 
 const products = [
-  { name: "Natural Oak Lounge Chair", price: 450000, category: "Furniture", image: "https://picsum.photos/id/10/800/1000", desc: "편안하고 튼튼한 오크 소재 라운지 체어" },
-  { name: "Ceramic Table Lamp", price: 120000, category: "Lighting", image: "https://picsum.photos/id/15/800/1000", desc: "따뜻한 빛으로 분위기를 더하는 조명" },
-  { name: "Linen Sofa Cover", price: 280000, category: "Fabric", image: "https://picsum.photos/id/20/800/1000", desc: "고급 린넨 소재의 푹신한 소파 커버" },
-  { name: "Wooden Side Table", price: 180000, category: "Furniture", image: "https://picsum.photos/id/25/800/1000", desc: "간결한 디자인의 베이직 사이드 테이블" }
+  { name: "Natural Oak Lounge Chair", price: 450000, category: "Furniture", image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&q=80&w=800", desc: "편안하고 튼튼한 오크 소재 라운지 체어" },
+  { name: "Ceramic Table Lamp", price: 120000, category: "Lighting", image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&q=80&w=800", desc: "따뜻한 빛으로 분위기를 더하는 조명" },
+  { name: "Linen Sofa Cover", price: 280000, category: "Fabric", image: "https://images.unsplash.com/photo-1512212621149-107ffe572d2f?auto=format&fit=crop&q=80&w=800", desc: "고급 린넨 소재의 푹신한 소파 커버" },
+  { name: "Wooden Side Table", price: 180000, category: "Furniture", image: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=80&w=800", desc: "간결한 디자인의 베이직 사이드 테이블" }
 ];
 
 export default function BestProducts() {

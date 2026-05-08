@@ -108,7 +108,12 @@ export const ThemePreviewModal = ({ isOpen, onClose, themeTitle, themeCategory }
                     'ALLPET': '/template/allpet',
                     'GRAND-TASTE': '/template/grand-taste',
                     'BRUN-LOVE-TANN': '/template/brun-love-tann',
-                    'K-NEXUS': '/template/knexus'
+                    'K-NEXUS': '/template/knexus',
+                    'LUVID': '/template/luvid',
+                    'VELOCE': '/template/veloce',
+                    'ARCHIV': '/template/archiv'
+
+
                   };
                   const normalizedTitle = themeTitle.toUpperCase();
                   const previewUrl = previewMap[normalizedTitle];
