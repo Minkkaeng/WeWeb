@@ -7,9 +7,11 @@ import App from './App.tsx'
 const rootElement = document.getElementById('root');
 if (!rootElement) throw new Error('Root element not found');
 
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 createRoot(rootElement).render(
   <StrictMode>
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <BrowserRouter basename={basename}>
       <App />
     </BrowserRouter>
   </StrictMode>,
