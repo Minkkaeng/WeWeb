@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation, Link } from 'react-router-dom'
 import { Header } from './components/Header'
 import { Landing } from './pages/Landing'
 import { ThemeLibrary } from './pages/ThemeLibrary'
@@ -30,7 +30,7 @@ function NotFound() {
       <div className="text-center">
         <h1 className="text-6xl font-bold text-gray-200 mb-4">404</h1>
         <p className="text-gray-500">Page not found</p>
-        <a href="/" className="mt-6 inline-block text-blood-coral font-medium hover:underline">Go Home</a>
+        <Link to="/" className="mt-6 inline-block text-blood-coral font-medium hover:underline">Go Home</Link>
       </div>
     </div>
   )
